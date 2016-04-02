@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopicsViewController">
+            <connections>
+                <outlet property="tblTopics" destination="FOe-7G-VmJ" id="5AV-kg-PTm"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="YRn-Ou-bhU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2MT-8w-3YU">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <items>
+                        <navigationItem title="Forum Topics" id="O2A-mR-MHk">
+                            <barButtonItem key="leftBarButtonItem" title="Back" id="QuX-PI-WC9">
+                                <connections>
+                                    <action selector="flipToHome:" destination="-1" id="QMl-41-9dp"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FOe-7G-VmJ">
+                    <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="y6b-bi-5ub"/>
+                        <outlet property="delegate" destination="-1" id="z60-VZ-Arx"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIN-6D-mJu">
+                    <rect key="frame" x="247" y="495" width="65" height="65"/>
+                    <state key="normal" backgroundImage="browser-icon.png"/>
+                    <connections>
+                        <action selector="openWebView:" destination="-1" eventType="touchUpInside" id="4ri-CY-NBm"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWX-Ta-HoN">
+                    <rect key="frame" x="174" y="495" width="65" height="65"/>
+                    <state key="normal" backgroundImage="chat-icon.png"/>
+                    <connections>
+                        <action selector="openAddTopic:" destination="-1" eventType="touchUpInside" id="Jrd-zR-DrD"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="349" y="342"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="browser-icon.png" width="128" height="128"/>
+        <image name="chat-icon.png" width="128" height="128"/>
+    </resources>
+</document>

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4C2591BD456AF0E57800FE6AB964A8149A6FB741",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4C2591BD456AF0E57800FE6AB964A8149A6FB741" : 0,
+    "797A14F04AB0FD567613178147E70C809A5FBC7F" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "374345D1-205C-470E-A061-9A4F44C3C551",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4C2591BD456AF0E57800FE6AB964A8149A6FB741" : "Ladder\/",
+    "797A14F04AB0FD567613178147E70C809A5FBC7F" : "LadderTest\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Ladder",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Ladder.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/weirdvector\/Ladder.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4C2591BD456AF0E57800FE6AB964A8149A6FB741"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/weirdvector\/LadderTest.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "797A14F04AB0FD567613178147E70C809A5FBC7F"
+    }
+  ]
+}

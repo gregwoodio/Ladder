@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  RegisterViewController.h
 //  Ladder
 //
 //  Created by iOS Xcode User on 2016-04-01.
@@ -8,10 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
-
+@interface RegisterViewController {
+    
+}
 @end
-
