@@ -34,6 +34,7 @@
     WebViewController *webVC;
     AddTopicViewController *addTopicVC;
     AddCommentViewController *addCommentVC;
+    NSInteger userID;
     
 }
 @property (strong, nonatomic) UIWindow *window;
@@ -47,6 +48,7 @@
 @property (nonatomic, strong) WebViewController *webVC;
 @property (nonatomic, strong) AddTopicViewController *addTopicVC;
 @property (nonatomic, strong) AddCommentViewController *addCommentVC;
+@property (nonatomic) NSInteger userID;
 
 #pragma mark - Navigation methods
 

@@ -74,7 +74,7 @@
     
     //make URL request
     NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
-    [req setURL: [NSURL URLWithString: @"http://mobile.sheridanc.on.ca/~woodgre/AddTopic.php"]];
+    [req setURL: [NSURL URLWithString: @"http://mobile.sheridanc.on.ca/~woodgre/AddUser.php"]];
     [req setHTTPMethod:@"POST"];
     [req setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -94,6 +94,9 @@
         [alert addAction:ok];
         
         [self presentViewController:alert animated: YES completion:nil];
+        
+        //Pass user details on to Profile View Controller.
+        
     } else {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle: @"Failure." message:@"Registration was not successful. Check your internet connection, or try again later." preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault

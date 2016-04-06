@@ -13,7 +13,7 @@
 @end
 
 @implementation AppDelegate
-@synthesize  window,homeVC, profileVC, registerVC, orgProfileVC, orgRegisterVC, topicsVC, commentsVC, webVC, addTopicVC, addCommentVC;
+@synthesize  window,homeVC, profileVC, registerVC, orgProfileVC, orgRegisterVC, topicsVC, commentsVC, webVC, addTopicVC, addCommentVC, userID;
 
 #pragma mark - Navigation
 
