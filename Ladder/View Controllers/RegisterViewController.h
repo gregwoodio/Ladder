@@ -21,6 +21,7 @@
     IBOutlet UIImagePickerController *imgProfilePicture;
     
     //User Profile Fields
+    IBOutlet UITextField *txtUsername;
     IBOutlet UITextField *txtFirstName;
     IBOutlet UITextField *txtLastName;
     IBOutlet UITextView *txtResume;
@@ -34,6 +35,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *txtDescription;
 @property (strong, nonatomic) IBOutlet UIImagePickerController *imgProfilePicture;
 
+@property (nonatomic, strong) IBOutlet UITextField *txtUsername;
 @property (strong, nonatomic) IBOutlet UITextField *txtFirstName;
 @property (strong, nonatomic) IBOutlet UITextField *txtLastName;
 @property (strong, nonatomic) IBOutlet UITextView *txtResume;

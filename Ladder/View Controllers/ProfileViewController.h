@@ -33,5 +33,4 @@
 @property (strong, nonatomic) IBOutlet UILabel *lbAcademicStatus;
 @property (strong, nonatomic) IBOutlet UITextView *lbResume;
 
-
 @end

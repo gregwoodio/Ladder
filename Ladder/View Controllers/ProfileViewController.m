@@ -25,7 +25,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    AppDelegate *mainDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    User *user = mainDelegate.user;
+//    NSLog(@"Firstname: %@\nLastname: %@\nEmail: %@", [user firstName], [user lastName], [user email]);
+
+    //setup labels to info from user
+    lbFirstName.text = user.firstName;
+    lbLastName.text = user.lastName;
+    lbEmail.text = user.email;
+    lbResume.text = user.resume;
+    lbDescription.text = user.userDescription;
+    
+    if (user.pictureURL != nil) {
+        //get URL and display it in imgProfilePicture
+    }
+    
+    //academic status
+    switch (user.academicStatus) {
+        case 0:
+            lbAcademicStatus.text = @"High School";
+            break;
+        case 1:
+            lbAcademicStatus.text = @"University";
+            break;
+        case 2:
+            lbAcademicStatus.text = @"None";
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

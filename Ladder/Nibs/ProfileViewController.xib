@@ -28,7 +28,7 @@
                         <navigationItem title="User Profile" id="cPo-dc-ARp">
                             <barButtonItem key="leftBarButtonItem" title="Home" id="fAY-Pw-e4Z">
                                 <connections>
-                                    <action selector="goHome:" destination="-1" id="Qz1-Sh-pkE"/>
+                                    <action selector="goHome:" destination="-1" id="Rff-uc-YeK"/>
                                 </connections>
                             </barButtonItem>
                         </navigationItem>

@@ -24,7 +24,7 @@
     NSError *error;
     
     //read JSON from URL (%zd for unsigned int)
-    NSString *urlWithTopic = [NSString stringWithFormat: @"http://mobile.sheridanc.on.ca/~woodgre/Topic.php?TopicID=%zd", self.topicID];
+    NSString *urlWithTopic = [NSString stringWithFormat: @"http://mobile.sheridanc.on.ca/~woodgre/Ladder/Topic.php?TopicID=%zd", self.topicID];
     NSURL *url = [NSURL URLWithString: urlWithTopic];
     NSString *file = [[NSString alloc] initWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
     
@@ -105,7 +105,7 @@
     mainDelegate.webVC = [[WebViewController alloc] init];
     
     //Right now this just shows the JSON data. We would actually open the Ladder site here.
-    NSString *urlWithTopic = [NSString stringWithFormat: @"http://mobile.sheridanc.on.ca/~woodgre/Topic.php?TopicID=%zd", self.topicID];
+    NSString *urlWithTopic = [NSString stringWithFormat: @"http://mobile.sheridanc.on.ca/~woodgre/Ladder/Topic.php?TopicID=%zd", self.topicID];
     mainDelegate.webVC.url = urlWithTopic;
     mainDelegate.webVC.sentFrom = mainDelegate.topicsVC.view;
     [mainDelegate swapViews:mainDelegate.topicsVC.view goingTo:mainDelegate.webVC.view];

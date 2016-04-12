@@ -16,7 +16,7 @@
 
 @implementation RegisterViewController
 
-@synthesize txtDescription,txtEmail,txtFirstName,txtLastName,txtPassword,txtResume,imgProfilePicture, sgAcademicStatus, txtPicturePath;
+@synthesize txtUsername, txtDescription,txtEmail,txtFirstName,txtLastName,txtPassword,txtResume,imgProfilePicture, sgAcademicStatus, txtPicturePath;
 
 
 
@@ -56,7 +56,8 @@
 
 -(IBAction)addUser:(id)sender{
     //make the POST string
-    NSString *post = [NSString stringWithFormat:@"FirstName=%@&LastName=%@&Password=%@&Email=%@&Description=%@&Resume=%@&AcademicStatus=%@&Picture=%@",
+    NSString *post = [NSString stringWithFormat:@"Username=%@&FirstName=%@&LastName=%@&Password=%@&Email=%@&Description=%@&Resume=%@&AcademicStatus=%@&Picture=%@",
+                      txtUsername.text,
                       txtFirstName.text,
                       txtLastName.text,
                       txtPassword.text,
@@ -74,7 +75,7 @@
     
     //make URL request
     NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
-    [req setURL: [NSURL URLWithString: @"http://mobile.sheridanc.on.ca/~woodgre/AddUser.php"]];
+    [req setURL: [NSURL URLWithString: @"http://mobile.sheridanc.on.ca/~woodgre/Ladder/AddUser.php"]];
     [req setHTTPMethod:@"POST"];
     [req setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -89,7 +90,9 @@
         UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                    handler: ^(UIAlertAction *action) {
                                                        //[alert dismissViewControllerAnimated:YES completion:nil];
-                                                       [self goProfile:nil];
+                                                       AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                                                       [delegate loginUser:txtUsername.text pw:txtPassword.text
+                                                        ];                                                       [self goProfile:nil];
                                                    }];
         [alert addAction:ok];
         

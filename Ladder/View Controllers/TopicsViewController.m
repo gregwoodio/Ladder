@@ -27,7 +27,7 @@
     NSError *error;
     
     //read JSON from URL
-    NSURL *url = [NSURL URLWithString:@"http://mobile.sheridanc.on.ca/~woodgre/AllTopics.php"];
+    NSURL *url = [NSURL URLWithString:@"http://mobile.sheridanc.on.ca/~woodgre/Ladder/AllTopics.php"];
     NSString *file = [[NSString alloc] initWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
     
     /*
@@ -49,7 +49,7 @@
     NSError *error;
     
     //read JSON from URL
-    NSURL *url = [NSURL URLWithString:@"http://mobile.sheridanc.on.ca/~woodgre/AllTopics.php"];
+    NSURL *url = [NSURL URLWithString:@"http://mobile.sheridanc.on.ca/~woodgre/Ladder/AllTopics.php"];
     NSString *file = [[NSString alloc] initWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
     
     /*
@@ -99,7 +99,7 @@
     mainDelegate.webVC = [[WebViewController alloc] init];
     
     //Right now this just shows the JSON data. We would actually open the Ladder site here.
-    mainDelegate.webVC.url = @"http://mobile.sheridanc.on.ca/~woodgre/AllTopics.php";
+    mainDelegate.webVC.url = @"http://mobile.sheridanc.on.ca/~woodgre/Ladder/AllTopics.php";
     mainDelegate.webVC.sentFrom = mainDelegate.topicsVC.view;
     [mainDelegate swapViews:mainDelegate.topicsVC.view goingTo:mainDelegate.webVC.view];
 }

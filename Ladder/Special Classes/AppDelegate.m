@@ -7,13 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import "UserUtility.h"
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-@synthesize  window,homeVC, profileVC, registerVC, orgProfileVC, orgRegisterVC, topicsVC, commentsVC, webVC, addTopicVC, addCommentVC, userID;
+@synthesize  window,homeVC, profileVC, registerVC, orgProfileVC, orgRegisterVC, topicsVC, commentsVC, webVC, addTopicVC, addCommentVC, user;
 
 #pragma mark - Navigation
 
@@ -37,12 +38,14 @@
     self.registerVC = [[RegisterViewController alloc] initWithNibName:@"RegisterViewController" bundle:nil];
     [self setupAnimation:FORWARD];
     [self swapViews: self.homeVC.view goingTo:self.registerVC.view];
+    [self playSound];
 }
 
 -(void)flipToRegisterHome{
     [self setupAnimation:BACKWARD];
     [self swapViews:self.registerVC.view goingTo:self.homeVC.view];
     self.registerVC = nil;
+    [self playSound];
 }
 
 
@@ -50,36 +53,42 @@
     self.profileVC = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
     [self setupAnimation:FORWARD];
     [self swapViews: self.registerVC.view goingTo:self.profileVC.view];
+    [self playSound];
 }
 
 -(void)flipToProfileHome {
     [self setupAnimation:BACKWARD];
     [self swapViews:self.profileVC.view goingTo:self.homeVC.view];
     self.profileVC = nil;
+    [self playSound];
 }
 
 -(void)flipToOrgRegister {
     self.orgRegisterVC = [[OrganizationRegisterViewController alloc] initWithNibName:@"OrganizationRegisterViewController" bundle:nil];
     [self setupAnimation:FORWARD];
     [self swapViews: self.homeVC.view goingTo:self.orgRegisterVC.view];
+    [self playSound];
 }
 
 -(void)flipToOrgRegisterHome {
     [self setupAnimation:BACKWARD];
     [self swapViews:self.orgRegisterVC.view goingTo:self.homeVC.view];
     self.orgRegisterVC = nil;
+    [self playSound];
 }
 
 -(void)flipToOrgProfile {
     self.orgProfileVC = [[OrganizationProfileViewController alloc] initWithNibName:@"OrganizationProfileViewController" bundle:nil];
     [self setupAnimation:FORWARD];
     [self swapViews: self.orgRegisterVC.view goingTo:self.orgProfileVC.view];
+    [self playSound];
 }
 
 -(void)flipToOrgProfileHome {
     [self setupAnimation:BACKWARD];
     [self swapViews:self.orgProfileVC.view goingTo:self.homeVC.view];
     self.orgProfileVC = nil;
+    [self playSound];
 }
 
 - (void) flipToComments: (NSInteger *)topicID titleText: (NSString *) title {
@@ -88,24 +97,28 @@
     self.commentsVC.titleText = title;
     [self setupAnimation:FORWARD];
     [self swapViews: self.topicsVC.view goingTo:self.commentsVC.view];
+    [self playSound];
 }
 
 - (void) flipToCommentsBack {
     [self setupAnimation:BACKWARD];
     [self swapViews:self.commentsVC.view goingTo:self.topicsVC.view];
     self.commentsVC = nil;
+    [self playSound];
 }
 
 - (void) flipToTopics {
     self.topicsVC = [[TopicsViewController alloc] initWithNibName:@"TopicsViewController" bundle:nil];
     [self setupAnimation:FORWARD];
     [self swapViews:self.homeVC.view goingTo:self.topicsVC.view];
+    [self playSound];
 }
 
 - (void) flipToTopicsHome {
     [self setupAnimation:BACKWARD];
     [self swapViews:self.topicsVC.view goingTo:self.homeVC.view];
     self.topicsVC = nil;
+    [self playSound];
 }
 
 #pragma mark - Other methods
@@ -113,11 +126,28 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
     
+    //get the user
+    UserUtility *uu = [[UserUtility alloc] init];
+    self.user = [uu retrieveUser:@"caseyjones" pw:@"password"];
+    
     self.homeVC = [[ViewController alloc] initWithNibName:@"View" bundle:nil];
     self.window.rootViewController = self.homeVC;
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+#pragma mark - User
+
+- (void) loginUser: (NSString *) username pw: (NSString *) password {
+    UserUtility *uu = [[UserUtility alloc] init];
+    self.user = [uu retrieveUser:username pw:password];
+}
+
+#pragma mark - Audio
+
+- (void) playSound {
+    AudioServicesPlaySystemSound(systemSoundID);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

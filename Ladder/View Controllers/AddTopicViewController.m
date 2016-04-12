@@ -47,7 +47,7 @@
     
     //make URL request
     NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
-    [req setURL: [NSURL URLWithString: @"http://mobile.sheridanc.on.ca/~woodgre/AddTopic.php"]];
+    [req setURL: [NSURL URLWithString: @"http://mobile.sheridanc.on.ca/~woodgre/Ladder/AddTopic.php"]];
     [req setHTTPMethod:@"POST"];
     [req setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
 #import "ViewController.h"
 #import "RegisterViewController.h"
 #import "ProfileViewController.h"
@@ -17,10 +19,12 @@
 #import "WebViewController.h"
 #import "AddTopicViewController.h"
 #import "AddCommentViewController.h"
+#import "User.h"
 
 #define ANIMATION_DURATION 1.0f
 #define FORWARD 0
 #define BACKWARD 1
+#define systemSoundID 1104
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
@@ -34,7 +38,7 @@
     WebViewController *webVC;
     AddTopicViewController *addTopicVC;
     AddCommentViewController *addCommentVC;
-    NSInteger userID;
+    User *user;
     
 }
 @property (strong, nonatomic) UIWindow *window;
@@ -48,7 +52,7 @@
 @property (nonatomic, strong) WebViewController *webVC;
 @property (nonatomic, strong) AddTopicViewController *addTopicVC;
 @property (nonatomic, strong) AddCommentViewController *addCommentVC;
-@property (nonatomic) NSInteger userID;
+@property (nonatomic, strong) User *user;
 
 #pragma mark - Navigation methods
 
@@ -66,6 +70,7 @@
 - (void) flipToTopicsHome;
 - (void) swapViews: (UIView *)from goingTo: (UIView *)to;
 - (void) setupAnimation: (NSInteger) direction;
+- (void) loginUser: (NSString *) username pw: (NSString *) password;
 
 @end
 
