@@ -37,13 +37,16 @@
                     <rect key="frame" x="59" y="446" width="203" height="69"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                     <state key="normal" title="View Postings"/>
+                    <connections>
+                        <action selector="goToPostings:" destination="-1" eventType="touchUpInside" id="4tg-LJ-D0c"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEF-z4-q0K">
                     <rect key="frame" x="59" y="369" width="203" height="69"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                     <state key="normal" title="View Forum"/>
                     <connections>
-                        <action selector="goToForums:" destination="-1" eventType="touchUpInside" id="9sg-v1-0R0"/>
+                        <action selector="goToForums:" destination="-1" eventType="touchUpInside" id="v66-AB-npv"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDV-qT-3NM">

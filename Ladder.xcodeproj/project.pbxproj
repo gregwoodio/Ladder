@@ -47,6 +47,14 @@
 		AEEB21151CBEC90E00091DA2 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEB21131CBEC90E00091DA2 /* AboutUsViewController.m */; };
 		AEEB21161CBEC90E00091DA2 /* AboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEEB21141CBEC90E00091DA2 /* AboutUsViewController.xib */; };
 		AEEB21181CBECB1C00091DA2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEB21171CBECB1C00091DA2 /* AVFoundation.framework */; };
+		AEEB211B1CBEFBAD00091DA2 /* SiteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEB211A1CBEFBAD00091DA2 /* SiteCell.m */; };
+		AEEB21221CBEFBF900091DA2 /* CreatePostingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEB211D1CBEFBF900091DA2 /* CreatePostingsViewController.m */; };
+		AEEB21241CBEFBF900091DA2 /* ViewPostingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEB21211CBEFBF900091DA2 /* ViewPostingsViewController.m */; };
+		AEEB21281CBEFC1300091DA2 /* CreatePostingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEEB21251CBEFC1300091DA2 /* CreatePostingsViewController.xib */; };
+		AEEB212A1CBEFC1300091DA2 /* ViewPostingDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEEB21271CBEFC1300091DA2 /* ViewPostingDetailsController.xib */; };
+		AEEB21331CBF00B000091DA2 /* AllPostingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEB21311CBF00B000091DA2 /* AllPostingsViewController.m */; };
+		AEEB21341CBF00B000091DA2 /* AllPostingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEEB21321CBF00B000091DA2 /* AllPostingsViewController.xib */; };
+		AEEB21361CBF0EA500091DA2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEB21351CBF0EA500091DA2 /* MapKit.framework */; };
 		AEED2F491CBC2C8400492727 /* pageturn.wav in Resources */ = {isa = PBXBuildFile; fileRef = AEED2F481CBC2C8400492727 /* pageturn.wav */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +121,18 @@
 		AEEB21131CBEC90E00091DA2 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
 		AEEB21141CBEC90E00091DA2 /* AboutUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUsViewController.xib; sourceTree = "<group>"; };
 		AEEB21171CBECB1C00091DA2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		AEEB21191CBEFBAD00091DA2 /* SiteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteCell.h; sourceTree = "<group>"; };
+		AEEB211A1CBEFBAD00091DA2 /* SiteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteCell.m; sourceTree = "<group>"; };
+		AEEB211C1CBEFBF900091DA2 /* CreatePostingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatePostingsViewController.h; sourceTree = "<group>"; };
+		AEEB211D1CBEFBF900091DA2 /* CreatePostingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatePostingsViewController.m; sourceTree = "<group>"; };
+		AEEB21201CBEFBF900091DA2 /* ViewPostingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPostingsViewController.h; sourceTree = "<group>"; };
+		AEEB21211CBEFBF900091DA2 /* ViewPostingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPostingsViewController.m; sourceTree = "<group>"; };
+		AEEB21251CBEFC1300091DA2 /* CreatePostingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreatePostingsViewController.xib; sourceTree = "<group>"; };
+		AEEB21271CBEFC1300091DA2 /* ViewPostingDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewPostingDetailsController.xib; sourceTree = "<group>"; };
+		AEEB21301CBF00B000091DA2 /* AllPostingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllPostingsViewController.h; sourceTree = "<group>"; };
+		AEEB21311CBF00B000091DA2 /* AllPostingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllPostingsViewController.m; sourceTree = "<group>"; };
+		AEEB21321CBF00B000091DA2 /* AllPostingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllPostingsViewController.xib; sourceTree = "<group>"; };
+		AEEB21351CBF0EA500091DA2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AEED2F481CBC2C8400492727 /* pageturn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pageturn.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEEB21361CBF0EA500091DA2 /* MapKit.framework in Frameworks */,
 				AEEB21181CBECB1C00091DA2 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +152,7 @@
 		AED6393B1CAF132300C1972E = {
 			isa = PBXGroup;
 			children = (
+				AEEB21351CBF0EA500091DA2 /* MapKit.framework */,
 				AEEB21171CBECB1C00091DA2 /* AVFoundation.framework */,
 				AED639461CAF132300C1972E /* Ladder */,
 				AED639451CAF132300C1972E /* Products */,
@@ -171,6 +193,10 @@
 		AED6395E1CAF13B300C1972E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AEEB211C1CBEFBF900091DA2 /* CreatePostingsViewController.h */,
+				AEEB211D1CBEFBF900091DA2 /* CreatePostingsViewController.m */,
+				AEEB21201CBEFBF900091DA2 /* ViewPostingsViewController.h */,
+				AEEB21211CBEFBF900091DA2 /* ViewPostingsViewController.m */,
 				AEEB21121CBEC90E00091DA2 /* AboutUsViewController.h */,
 				AEEB21131CBEC90E00091DA2 /* AboutUsViewController.m */,
 				AEEB21091CBEB7C100091DA2 /* DashBoardViewController.h */,
@@ -196,6 +222,8 @@
 				AED6399A1CAF155800C1972E /* TopicsViewController.m */,
 				AED6399B1CAF155800C1972E /* WebViewController.h */,
 				AED6399C1CAF155800C1972E /* WebViewController.m */,
+				AEEB21301CBF00B000091DA2 /* AllPostingsViewController.h */,
+				AEEB21311CBF00B000091DA2 /* AllPostingsViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -203,6 +231,8 @@
 		AED6395F1CAF13BD00C1972E /* Special Classes */ = {
 			isa = PBXGroup;
 			children = (
+				AEEB21191CBEFBAD00091DA2 /* SiteCell.h */,
+				AEEB211A1CBEFBAD00091DA2 /* SiteCell.m */,
 				AED639621CAF144100C1972E /* AppDelegate.h */,
 				AED639631CAF144100C1972E /* AppDelegate.m */,
 				AE4FFE6D1CBC96E1006B3179 /* CommentTableViewCell.m */,
@@ -224,6 +254,8 @@
 		AED639601CAF13D100C1972E /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
+				AEEB21251CBEFC1300091DA2 /* CreatePostingsViewController.xib */,
+				AEEB21271CBEFC1300091DA2 /* ViewPostingDetailsController.xib */,
 				AEEB21101CBEBFEB00091DA2 /* LaunchScreen.storyboard */,
 				AEEB210E1CBEBF4A00091DA2 /* View.xib */,
 				AED639661CAF144100C1972E /* OrganizationProfileViewController.xib */,
@@ -238,6 +270,7 @@
 				AED639891CAF150000C1972E /* WebViewController.xib */,
 				AEEB210B1CBEB7C100091DA2 /* DashBoardViewController.xib */,
 				AEEB21141CBEC90E00091DA2 /* AboutUsViewController.xib */,
+				AEEB21321CBF00B000091DA2 /* AllPostingsViewController.xib */,
 			);
 			name = Nibs;
 			sourceTree = "<group>";
@@ -318,6 +351,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEEB21281CBEFC1300091DA2 /* CreatePostingsViewController.xib in Resources */,
 				AEEB21161CBEC90E00091DA2 /* AboutUsViewController.xib in Resources */,
 				AED6398C1CAF150000C1972E /* CommentsViewController.xib in Resources */,
 				AED6398A1CAF150000C1972E /* AddCommentViewController.xib in Resources */,
@@ -329,12 +363,14 @@
 				AED639811CAF14E000C1972E /* browser-icon.png in Resources */,
 				AEED2F491CBC2C8400492727 /* pageturn.wav in Resources */,
 				AED6398B1CAF150000C1972E /* AddTopicViewController.xib in Resources */,
+				AEEB21341CBF00B000091DA2 /* AllPostingsViewController.xib in Resources */,
 				AED6398E1CAF150000C1972E /* TopicsViewController.xib in Resources */,
 				AED639541CAF132300C1972E /* Assets.xcassets in Resources */,
 				AEEB21111CBEBFEB00091DA2 /* LaunchScreen.storyboard in Resources */,
 				AED6398F1CAF150000C1972E /* WebViewController.xib in Resources */,
 				AED639801CAF14E000C1972E /* anonymous.jpg in Resources */,
 				AEEB210F1CBEBF4A00091DA2 /* View.xib in Resources */,
+				AEEB212A1CBEFC1300091DA2 /* ViewPostingDetailsController.xib in Resources */,
 				AED639821CAF14E000C1972E /* chat-icon.png in Resources */,
 				AED639741CAF144100C1972E /* OrganizationProfileViewController.xib in Resources */,
 				AEEB210D1CBEB7C100091DA2 /* DashBoardViewController.xib in Resources */,
@@ -354,16 +390,20 @@
 				AED639751CAF144100C1972E /* OrganizationRegisterViewController.m in Sources */,
 				AED639A01CAF155800C1972E /* TopicsViewController.m in Sources */,
 				AEEB21151CBEC90E00091DA2 /* AboutUsViewController.m in Sources */,
+				AEEB211B1CBEFBAD00091DA2 /* SiteCell.m in Sources */,
+				AEEB21241CBEFBF900091DA2 /* ViewPostingsViewController.m in Sources */,
 				AE4FFE6E1CBC96E1006B3179 /* CommentTableViewCell.m in Sources */,
 				AE1C07D51CBED7CF007BFD4A /* PostingUtility.m in Sources */,
 				AED6399F1CAF155800C1972E /* CommentsViewController.m in Sources */,
 				AED6399E1CAF155800C1972E /* AddTopicViewController.m in Sources */,
 				AED639791CAF144100C1972E /* RegisterViewController.m in Sources */,
+				AEEB21331CBF00B000091DA2 /* AllPostingsViewController.m in Sources */,
 				AED639A11CAF155800C1972E /* WebViewController.m in Sources */,
 				AE4FFE711CBC97EE006B3179 /* User.m in Sources */,
 				AED639731CAF144100C1972E /* OrganizationProfileViewController.m in Sources */,
 				AE1C07D31CBED7CF007BFD4A /* Organization.m in Sources */,
 				AED6399D1CAF155800C1972E /* AddCommentViewController.m in Sources */,
+				AEEB21221CBEFBF900091DA2 /* CreatePostingsViewController.m in Sources */,
 				AED639721CAF144100C1972E /* AppDelegate.m in Sources */,
 				AED639491CAF132300C1972E /* main.m in Sources */,
 				AEEB210C1CBEB7C100091DA2 /* DashBoardViewController.m in Sources */,

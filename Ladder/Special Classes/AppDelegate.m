@@ -14,7 +14,7 @@
 @end
 
 @implementation AppDelegate
-@synthesize  window,homeVC, profileVC, registerVC, orgProfileVC, orgRegisterVC, topicsVC, commentsVC, webVC, addTopicVC, addCommentVC, dashVC, loginVC, aboutVC, user, organization, _audioPlayer;
+@synthesize  window,homeVC, profileVC, registerVC, orgProfileVC, orgRegisterVC, topicsVC, commentsVC, webVC, addTopicVC, addCommentVC, dashVC, loginVC, aboutVC, viewPostVC, allPostingsVC, createPostVC, postings, selectedPost, user, organization, _audioPlayer;
 
 #pragma mark - Navigation - Alan
 -(void)transToDash
@@ -42,6 +42,20 @@
     [self setupAnimation:BACKWARD];
     [self swapViews:self.aboutVC.view goingTo:self.dashVC.view];
 }
+
+-(void)transToPostings
+{
+    self.allPostingsVC = [[AllPostingsViewController alloc] initWithNibName:@"AllPostingsViewController" bundle:nil];
+    [self setupAnimation:FORWARD];
+    [self swapViews:self.dashVC.view goingTo:self.allPostingsVC.view];
+}
+
+-(void)transToDashFromPostings{
+    self.allPostingsVC = [[AllPostingsViewController alloc] initWithNibName:@"AllPostingsViewController" bundle:nil];
+    [self setupAnimation:BACKWARD];
+    [self swapViews:self.allPostingsVC.view goingTo:self.dashVC.view];
+}
+
 
 #pragma mark - Navigation
 
@@ -149,10 +163,71 @@
     [self playSound];
 }
 
+#pragma mark - Peter's Navigation Tools
+//Move from view postings to create a posting
+-(void)flipToCreatePostings
+{
+    CreatePostingsViewController *cpvc = [[CreatePostingsViewController alloc] initWithNibName:@"CreatePostingsViewController" bundle:nil];
+    self.createPostVC = cpvc;
+    
+    [self setupAnimation:FORWARD];
+    [self swapViews:self.allPostingsVC.view goingTo:self.createPostVC.view];
+    [self playSound];
+    
+}
+
+//Move from create postings to view postings
+-(void)flipToCreatePostingsHome
+{
+    [self setupAnimation:BACKWARD];
+    [self swapViews:self.createPostVC.view goingTo:self.allPostingsVC.view];
+    [self playSound];
+    
+    
+}
+
+//Move from view all postings (home) to view detailed posting
+-(void)flipToDetailedPosting
+{
+    ViewPostingsViewController *vpvc = [[ViewPostingsViewController alloc] initWithNibName:@"ViewPostingDetailsController" bundle:nil];
+    self.viewPostVC = vpvc;
+    
+    [self setupAnimation:FORWARD];
+    [self swapViews:self.allPostingsVC.view goingTo:self.viewPostVC.view];
+    [self playSound];
+    
+}
+
+-(void)flipToDetailedPostingHome
+{
+    [self setupAnimation:BACKWARD];
+    [self swapViews:self.viewPostVC.view goingTo:self.allPostingsVC.view];
+    [self playSound];
+    
+    viewPostVC = nil;
+}
+
+-(void)addPosting:(Posting *)post
+{
+    [self.postings addObject:post];
+}
+
+
 #pragma mark - Other methods
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
+    //Peter's Data init
+    self.postings= [[NSMutableArray alloc] init];
+    
+    Posting *p = [[Posting alloc] init];
+    p.organizerName = @"Sheridan";
+    p.location = @"Davis";
+    p.jobTitle = @"Volunteer";
+    p.jobDescription = @"SSU volunteer position";
+    
+    [self.postings addObject:p];
+    
+    
     
     // Construct URL to sound file
     NSString *path = [NSString stringWithFormat:@"%@/pageturn.wav", [[NSBundle mainBundle] resourcePath]];
@@ -165,6 +240,8 @@
     UserUtility *uu = [[UserUtility alloc] init];
     self.user = [uu retrieveUser:@"caseyjones" pw:@"password"];
     
+    //Home screen init
+    self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
     self.loginVC = [[ViewController alloc] initWithNibName:@"View" bundle:nil];
     self.window.rootViewController = self.loginVC;
     [self.window makeKeyAndVisible];
@@ -173,7 +250,6 @@
 }
 
 #pragma mark - User
-
 - (void) loginUser: (NSString *) username pw: (NSString *) password {
     UserUtility *uu = [[UserUtility alloc] init];
     self.user = [uu retrieveUser:username pw:password];

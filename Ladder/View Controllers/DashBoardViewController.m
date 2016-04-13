@@ -22,6 +22,11 @@
     [mainDelegate flipToTopics];
 }
 
+-(IBAction)goToPostings:(id)sender
+{
+    AppDelegate *mainDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    [mainDelegate transToPostings];
+}
 
 -(IBAction)goToOrganizationProfile:(id)sender
 {
@@ -54,6 +59,7 @@
     // Do any additional setup after loading the view from its nib.
 
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

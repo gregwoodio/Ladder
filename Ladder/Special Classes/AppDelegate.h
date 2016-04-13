@@ -21,9 +21,24 @@
 #import "AddCommentViewController.h"
 #import "User.h"
 #import "Organization.h"
+
+
+#pragma mark - Alan's Imports
+
 #import "DashBoardViewController.h"
 #import "AboutUsViewController.h"
+
 #import <AVFoundation/AVFoundation.h>
+
+#pragma mark - Peter's Imports
+
+#import "CreatePostingsViewController.h"
+#import "AllPostingsViewController.h"
+#import "ViewPostingsViewController.h"
+#import "Posting.h"
+#import "SiteCell.h"
+
+#pragma mark Constants Declared
 
 #define ANIMATION_DURATION 1.0f
 #define FORWARD 0
@@ -49,6 +64,14 @@
     AppDelegate *mainDelegate;
     AVAudioPlayer *_audioPlayer; //holds the AVAudioPlayer object
     
+    
+    //Peter's objects
+    AllPostingsViewController *allPostingsVC;
+    CreatePostingsViewController *createPostVC;
+    ViewPostingsViewController *viewPostVC;
+    NSMutableArray *postings;
+    NSInteger selectedPost;
+    
 }
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) ProfileViewController *profileVC;
@@ -69,6 +92,14 @@
 @property (strong, nonatomic) ViewController *loginVC;
 @property (strong, nonatomic) DashBoardViewController *dashVC;
 @property (strong, nonatomic) AboutUsViewController *aboutVC;
+
+
+#pragma mark - Objects Peter
+@property (strong, nonatomic) AllPostingsViewController *allPostingsVC;
+@property (strong, nonatomic) CreatePostingsViewController *createPostVC;
+@property (strong, nonatomic) ViewPostingsViewController *viewPostVC;
+@property (strong, nonatomic) NSMutableArray *postings;
+@property (nonatomic) NSInteger selectedPost;
 
 
 #pragma mark - Navigation methods
@@ -94,11 +125,15 @@
 -(void)transToLogin;
 -(void)transToAbout;
 -(void)transToDashFromAbout;
-
+-(void)transToPostings;
+-(void)transToDashFromPostings;
 
 #pragma mark Navigation Methods Peter
-
-
+-(void)flipToCreatePostings;
+-(void)flipToCreatePostingsHome;
+-(void)flipToDetailedPosting;
+-(void)flipToDetailedPostingHome;
+-(void)addPosting:(Posting *)post;
 
 
 #pragma mark Navigation Methods Greg
