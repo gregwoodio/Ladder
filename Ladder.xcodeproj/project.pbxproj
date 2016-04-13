@@ -12,7 +12,6 @@
 		AE4FFE741CBCA1EE006B3179 /* UserUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4FFE731CBCA1EE006B3179 /* UserUtility.m */; };
 		AED639491CAF132300C1972E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AED639481CAF132300C1972E /* main.m */; };
 		AED639541CAF132300C1972E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AED639531CAF132300C1972E /* Assets.xcassets */; };
-		AED639571CAF132300C1972E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AED639551CAF132300C1972E /* LaunchScreen.storyboard */; };
 		AED639721CAF144100C1972E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AED639631CAF144100C1972E /* AppDelegate.m */; };
 		AED639731CAF144100C1972E /* OrganizationProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED639651CAF144100C1972E /* OrganizationProfileViewController.m */; };
 		AED639741CAF144100C1972E /* OrganizationProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED639661CAF144100C1972E /* OrganizationProfileViewController.xib */; };
@@ -38,7 +37,13 @@
 		AED6399F1CAF155800C1972E /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED639981CAF155800C1972E /* CommentsViewController.m */; };
 		AED639A01CAF155800C1972E /* TopicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED6399A1CAF155800C1972E /* TopicsViewController.m */; };
 		AED639A11CAF155800C1972E /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED6399C1CAF155800C1972E /* WebViewController.m */; };
-		AED639A31CAF22CD00C1972E /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED639A21CAF22CD00C1972E /* View.xib */; };
+		AEEB210C1CBEB7C100091DA2 /* DashBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEB210A1CBEB7C100091DA2 /* DashBoardViewController.m */; };
+		AEEB210D1CBEB7C100091DA2 /* DashBoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEEB210B1CBEB7C100091DA2 /* DashBoardViewController.xib */; };
+		AEEB210F1CBEBF4A00091DA2 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEEB210E1CBEBF4A00091DA2 /* View.xib */; };
+		AEEB21111CBEBFEB00091DA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEEB21101CBEBFEB00091DA2 /* LaunchScreen.storyboard */; };
+		AEEB21151CBEC90E00091DA2 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEB21131CBEC90E00091DA2 /* AboutUsViewController.m */; };
+		AEEB21161CBEC90E00091DA2 /* AboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEEB21141CBEC90E00091DA2 /* AboutUsViewController.xib */; };
+		AEEB21181CBECB1C00091DA2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEB21171CBECB1C00091DA2 /* AVFoundation.framework */; };
 		AEED2F491CBC2C8400492727 /* pageturn.wav in Resources */ = {isa = PBXBuildFile; fileRef = AEED2F481CBC2C8400492727 /* pageturn.wav */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +56,6 @@
 		AED639441CAF132300C1972E /* Ladder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ladder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED639481CAF132300C1972E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AED639531CAF132300C1972E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AED639561CAF132300C1972E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AED639581CAF132300C1972E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AED639621CAF144100C1972E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Special Classes/AppDelegate.h"; sourceTree = "<group>"; };
 		AED639631CAF144100C1972E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "Special Classes/AppDelegate.m"; sourceTree = "<group>"; };
@@ -90,8 +94,16 @@
 		AED6399A1CAF155800C1972E /* TopicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicsViewController.m; path = "View Controllers/TopicsViewController.m"; sourceTree = "<group>"; };
 		AED6399B1CAF155800C1972E /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = "View Controllers/WebViewController.h"; sourceTree = "<group>"; };
 		AED6399C1CAF155800C1972E /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewController.m; path = "View Controllers/WebViewController.m"; sourceTree = "<group>"; };
-		AED639A21CAF22CD00C1972E /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = View.xib; path = Nibs/View.xib; sourceTree = "<group>"; };
 		AED639AD1CAF64CB00C1972E /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = "View Controllers/RegisterViewController.h"; sourceTree = "<group>"; };
+		AEEB21091CBEB7C100091DA2 /* DashBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DashBoardViewController.h; path = "View Controllers/DashBoardViewController.h"; sourceTree = "<group>"; };
+		AEEB210A1CBEB7C100091DA2 /* DashBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DashBoardViewController.m; path = "View Controllers/DashBoardViewController.m"; sourceTree = "<group>"; };
+		AEEB210B1CBEB7C100091DA2 /* DashBoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DashBoardViewController.xib; path = Nibs/DashBoardViewController.xib; sourceTree = "<group>"; };
+		AEEB210E1CBEBF4A00091DA2 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		AEEB21101CBEBFEB00091DA2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AEEB21121CBEC90E00091DA2 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		AEEB21131CBEC90E00091DA2 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		AEEB21141CBEC90E00091DA2 /* AboutUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUsViewController.xib; sourceTree = "<group>"; };
+		AEEB21171CBECB1C00091DA2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		AEED2F481CBC2C8400492727 /* pageturn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pageturn.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEEB21181CBECB1C00091DA2 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +122,7 @@
 		AED6393B1CAF132300C1972E = {
 			isa = PBXGroup;
 			children = (
+				AEEB21171CBECB1C00091DA2 /* AVFoundation.framework */,
 				AED639461CAF132300C1972E /* Ladder */,
 				AED639451CAF132300C1972E /* Products */,
 			);
@@ -148,6 +162,10 @@
 		AED6395E1CAF13B300C1972E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AEEB21121CBEC90E00091DA2 /* AboutUsViewController.h */,
+				AEEB21131CBEC90E00091DA2 /* AboutUsViewController.m */,
+				AEEB21091CBEB7C100091DA2 /* DashBoardViewController.h */,
+				AEEB210A1CBEB7C100091DA2 /* DashBoardViewController.m */,
 				AED639641CAF144100C1972E /* OrganizationProfileViewController.h */,
 				AED639651CAF144100C1972E /* OrganizationProfileViewController.m */,
 				AED639671CAF144100C1972E /* OrganizationRegisterViewController.h */,
@@ -191,7 +209,8 @@
 		AED639601CAF13D100C1972E /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
-				AED639551CAF132300C1972E /* LaunchScreen.storyboard */,
+				AEEB21101CBEBFEB00091DA2 /* LaunchScreen.storyboard */,
+				AEEB210E1CBEBF4A00091DA2 /* View.xib */,
 				AED639661CAF144100C1972E /* OrganizationProfileViewController.xib */,
 				AED639691CAF144100C1972E /* OrganizationRegisterViewController.xib */,
 				AED6396C1CAF144100C1972E /* ProfileViewController.xib */,
@@ -202,7 +221,8 @@
 				AED639871CAF150000C1972E /* CommentTableViewCell.xib */,
 				AED639881CAF150000C1972E /* TopicsViewController.xib */,
 				AED639891CAF150000C1972E /* WebViewController.xib */,
-				AED639A21CAF22CD00C1972E /* View.xib */,
+				AEEB210B1CBEB7C100091DA2 /* DashBoardViewController.xib */,
+				AEEB21141CBEC90E00091DA2 /* AboutUsViewController.xib */,
 			);
 			name = Nibs;
 			sourceTree = "<group>";
@@ -283,6 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEEB21161CBEC90E00091DA2 /* AboutUsViewController.xib in Resources */,
 				AED6398C1CAF150000C1972E /* CommentsViewController.xib in Resources */,
 				AED6398A1CAF150000C1972E /* AddCommentViewController.xib in Resources */,
 				AED639781CAF144100C1972E /* ProfileViewController.xib in Resources */,
@@ -292,15 +313,16 @@
 				AED6397A1CAF144100C1972E /* RegisterViewController.xib in Resources */,
 				AED639811CAF14E000C1972E /* browser-icon.png in Resources */,
 				AEED2F491CBC2C8400492727 /* pageturn.wav in Resources */,
-				AED639A31CAF22CD00C1972E /* View.xib in Resources */,
-				AED639571CAF132300C1972E /* LaunchScreen.storyboard in Resources */,
 				AED6398B1CAF150000C1972E /* AddTopicViewController.xib in Resources */,
 				AED6398E1CAF150000C1972E /* TopicsViewController.xib in Resources */,
 				AED639541CAF132300C1972E /* Assets.xcassets in Resources */,
+				AEEB21111CBEBFEB00091DA2 /* LaunchScreen.storyboard in Resources */,
 				AED6398F1CAF150000C1972E /* WebViewController.xib in Resources */,
 				AED639801CAF14E000C1972E /* anonymous.jpg in Resources */,
+				AEEB210F1CBEBF4A00091DA2 /* View.xib in Resources */,
 				AED639821CAF14E000C1972E /* chat-icon.png in Resources */,
 				AED639741CAF144100C1972E /* OrganizationProfileViewController.xib in Resources */,
+				AEEB210D1CBEB7C100091DA2 /* DashBoardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +337,7 @@
 				AE4FFE741CBCA1EE006B3179 /* UserUtility.m in Sources */,
 				AED639751CAF144100C1972E /* OrganizationRegisterViewController.m in Sources */,
 				AED639A01CAF155800C1972E /* TopicsViewController.m in Sources */,
+				AEEB21151CBEC90E00091DA2 /* AboutUsViewController.m in Sources */,
 				AE4FFE6E1CBC96E1006B3179 /* CommentTableViewCell.m in Sources */,
 				AED6399F1CAF155800C1972E /* CommentsViewController.m in Sources */,
 				AED6399E1CAF155800C1972E /* AddTopicViewController.m in Sources */,
@@ -325,22 +348,12 @@
 				AED6399D1CAF155800C1972E /* AddCommentViewController.m in Sources */,
 				AED639721CAF144100C1972E /* AppDelegate.m in Sources */,
 				AED639491CAF132300C1972E /* main.m in Sources */,
+				AEEB210C1CBEB7C100091DA2 /* DashBoardViewController.m in Sources */,
 				AED639771CAF144100C1972E /* ProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		AED639551CAF132300C1972E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AED639561CAF132300C1972E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AED639591CAF132300C1972E /* Debug */ = {

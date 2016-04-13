@@ -20,6 +20,9 @@
 #import "AddTopicViewController.h"
 #import "AddCommentViewController.h"
 #import "User.h"
+#import "DashBoardViewController.h"
+#import "AboutUsViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 #define ANIMATION_DURATION 1.0f
 #define FORWARD 0
@@ -39,6 +42,10 @@
     AddTopicViewController *addTopicVC;
     AddCommentViewController *addCommentVC;
     User *user;
+    DashBoardViewController *dashVC;
+    AboutUsViewController *aboutVC;
+    AppDelegate *mainDelegate;
+    AVAudioPlayer *_audioPlayer; //holds the AVAudioPlayer object
     
 }
 @property (strong, nonatomic) UIWindow *window;
@@ -53,6 +60,13 @@
 @property (nonatomic, strong) AddTopicViewController *addTopicVC;
 @property (nonatomic, strong) AddCommentViewController *addCommentVC;
 @property (nonatomic, strong) User *user;
+@property (nonatomic, strong) AVAudioPlayer *_audioPlayer;
+
+#pragma mark - Objects Alan
+@property (strong, nonatomic) ViewController *loginVC;
+@property (strong, nonatomic) DashBoardViewController *dashVC;
+@property (strong, nonatomic) AboutUsViewController *aboutVC;
+
 
 #pragma mark - Navigation methods
 
@@ -71,6 +85,26 @@
 - (void) swapViews: (UIView *)from goingTo: (UIView *)to;
 - (void) setupAnimation: (NSInteger) direction;
 - (void) loginUser: (NSString *) username pw: (NSString *) password;
+
+#pragma mark - Naviagation Methods Alan
+-(void)transToDash;
+-(void)transToLogin;
+-(void)transToAbout;
+-(void)transToDashFromAbout;
+
+
+#pragma mark Navigation Methods Peter
+
+
+
+
+#pragma mark Navigation Methods Greg
+
+
+
+#pragma mark Navigation Methods Muska
+
+
 
 @end
 

@@ -10,8 +10,15 @@
 
 @interface ViewController : UIViewController
 {
-    
+    IBOutlet UIButton *loginBtn;
+    IBOutlet UIButton *registerUserBtn;
+    IBOutlet UIButton *registerOrgBtn;
 }
+
+@property (nonatomic, strong)IBOutlet UIButton *loginBtn;
+@property (nonatomic, strong)IBOutlet UIButton *registerUserBtn;
+@property (nonatomic, strong)IBOutlet UIButton *registerOrgBtn;
+
 
 @end
 

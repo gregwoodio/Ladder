@@ -14,7 +14,34 @@
 @end
 
 @implementation AppDelegate
-@synthesize  window,homeVC, profileVC, registerVC, orgProfileVC, orgRegisterVC, topicsVC, commentsVC, webVC, addTopicVC, addCommentVC, user;
+@synthesize  window,homeVC, profileVC, registerVC, orgProfileVC, orgRegisterVC, topicsVC, commentsVC, webVC, addTopicVC, addCommentVC, dashVC, loginVC, aboutVC, user, _audioPlayer;
+
+#pragma mark - Navigation - Alan
+-(void)transToDash
+{
+    self.dashVC = [[DashBoardViewController alloc] initWithNibName:@"DashBoardViewController" bundle:nil];
+    [self setupAnimation:FORWARD];
+    [self swapViews:self.loginVC.view goingTo:self.dashVC.view];
+}
+
+-(void)transToAbout{
+    self.aboutVC = [[AboutUsViewController alloc] initWithNibName:@"AboutUsViewController" bundle:nil];
+    [self setupAnimation:FORWARD];
+    [self swapViews:self.dashVC.view goingTo:self.aboutVC.view];
+}
+
+-(void)transToLogin
+{
+    self.aboutVC = [[AboutUsViewController alloc] initWithNibName:@"View" bundle:nil];
+    [self setupAnimation:FORWARD];
+    [self swapViews:self.dashVC.view goingTo:self.loginVC.view];
+}
+
+-(void)transToDashFromAbout{
+    self.dashVC = [[DashBoardViewController alloc] initWithNibName:@"DashBoardViewController" bundle:nil];
+    [self setupAnimation:BACKWARD];
+    [self swapViews:self.aboutVC.view goingTo:self.dashVC.view];
+}
 
 #pragma mark - Navigation
 
@@ -29,6 +56,7 @@
 }
 
 - (void) swapViews: (UIView *)from goingTo: (UIView *)to {
+    [_audioPlayer play];
     [from removeFromSuperview];
     [self.window addSubview: to];
     [UIView commitAnimations];
@@ -37,13 +65,13 @@
 - (void) flipToRegister {
     self.registerVC = [[RegisterViewController alloc] initWithNibName:@"RegisterViewController" bundle:nil];
     [self setupAnimation:FORWARD];
-    [self swapViews: self.homeVC.view goingTo:self.registerVC.view];
+    [self swapViews: self.loginVC.view goingTo:self.registerVC.view];
     [self playSound];
 }
 
 -(void)flipToRegisterHome{
     [self setupAnimation:BACKWARD];
-    [self swapViews:self.registerVC.view goingTo:self.homeVC.view];
+    [self swapViews:self.registerVC.view goingTo:self.loginVC.view];
     self.registerVC = nil;
     [self playSound];
 }
@@ -52,13 +80,13 @@
 -(void)flipToProfile {
     self.profileVC = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
     [self setupAnimation:FORWARD];
-    [self swapViews: self.registerVC.view goingTo:self.profileVC.view];
+    [self swapViews: self.dashVC.view goingTo:self.profileVC.view];
     [self playSound];
 }
 
 -(void)flipToProfileHome {
     [self setupAnimation:BACKWARD];
-    [self swapViews:self.profileVC.view goingTo:self.homeVC.view];
+    [self swapViews:self.profileVC.view goingTo:self.dashVC.view];
     self.profileVC = nil;
     [self playSound];
 }
@@ -66,13 +94,13 @@
 -(void)flipToOrgRegister {
     self.orgRegisterVC = [[OrganizationRegisterViewController alloc] initWithNibName:@"OrganizationRegisterViewController" bundle:nil];
     [self setupAnimation:FORWARD];
-    [self swapViews: self.homeVC.view goingTo:self.orgRegisterVC.view];
+    [self swapViews: self.loginVC.view goingTo:self.orgRegisterVC.view];
     [self playSound];
 }
 
 -(void)flipToOrgRegisterHome {
     [self setupAnimation:BACKWARD];
-    [self swapViews:self.orgRegisterVC.view goingTo:self.homeVC.view];
+    [self swapViews:self.orgRegisterVC.view goingTo:self.loginVC.view];
     self.orgRegisterVC = nil;
     [self playSound];
 }
@@ -80,13 +108,13 @@
 -(void)flipToOrgProfile {
     self.orgProfileVC = [[OrganizationProfileViewController alloc] initWithNibName:@"OrganizationProfileViewController" bundle:nil];
     [self setupAnimation:FORWARD];
-    [self swapViews: self.orgRegisterVC.view goingTo:self.orgProfileVC.view];
+    [self swapViews: self.dashVC.view goingTo:self.orgProfileVC.view];
     [self playSound];
 }
 
 -(void)flipToOrgProfileHome {
     [self setupAnimation:BACKWARD];
-    [self swapViews:self.orgProfileVC.view goingTo:self.homeVC.view];
+    [self swapViews:self.orgProfileVC.view goingTo:self.dashVC.view];
     self.orgProfileVC = nil;
     [self playSound];
 }
@@ -110,13 +138,13 @@
 - (void) flipToTopics {
     self.topicsVC = [[TopicsViewController alloc] initWithNibName:@"TopicsViewController" bundle:nil];
     [self setupAnimation:FORWARD];
-    [self swapViews:self.homeVC.view goingTo:self.topicsVC.view];
+    [self swapViews:self.dashVC.view goingTo:self.topicsVC.view];
     [self playSound];
 }
 
 - (void) flipToTopicsHome {
     [self setupAnimation:BACKWARD];
-    [self swapViews:self.topicsVC.view goingTo:self.homeVC.view];
+    [self swapViews:self.topicsVC.view goingTo:self.dashVC.view];
     self.topicsVC = nil;
     [self playSound];
 }
@@ -126,12 +154,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
     
+    // Construct URL to sound file
+    NSString *path = [NSString stringWithFormat:@"%@/pageturn.wav", [[NSBundle mainBundle] resourcePath]];
+    NSURL *soundUrl = [NSURL fileURLWithPath:path];
+    
+    // Create audio player object and initialize with URL to sound
+    _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
+    
     //get the user
     UserUtility *uu = [[UserUtility alloc] init];
     self.user = [uu retrieveUser:@"caseyjones" pw:@"password"];
     
-    self.homeVC = [[ViewController alloc] initWithNibName:@"View" bundle:nil];
-    self.window.rootViewController = self.homeVC;
+    self.loginVC = [[ViewController alloc] initWithNibName:@"View" bundle:nil];
+    self.window.rootViewController = self.loginVC;
     [self.window makeKeyAndVisible];
     
     return YES;

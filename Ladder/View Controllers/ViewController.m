@@ -14,12 +14,8 @@
 @end
 
 @implementation ViewController
+@synthesize loginBtn, registerOrgBtn, registerUserBtn;
 
--(IBAction)goToProfile:(id)sender
-{
-    AppDelegate *mainDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    [mainDelegate flipToProfile];
-}
 
 -(IBAction)goToRegister:(id)sender
 {
@@ -33,17 +29,6 @@
     [mainDelegate flipToOrgRegister];
 }
 
--(IBAction)goToOrganizationProfile:(id)sender
-{
-    AppDelegate *mainDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    [mainDelegate flipToOrgProfile];
-}
-
--(IBAction)goToForumTopics:(id)sender
-{
-    AppDelegate *mainDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    [mainDelegate flipToTopics];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -53,6 +38,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)loginClick:(id)sender
+{
+    AppDelegate *mainDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    [mainDelegate transToDash];
 }
 
 @end
