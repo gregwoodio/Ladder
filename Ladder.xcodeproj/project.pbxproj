@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE1C07D31CBED7CF007BFD4A /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1C07CE1CBED7CF007BFD4A /* Organization.m */; };
+		AE1C07D41CBED7CF007BFD4A /* Posting.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1C07D01CBED7CF007BFD4A /* Posting.m */; };
+		AE1C07D51CBED7CF007BFD4A /* PostingUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1C07D21CBED7CF007BFD4A /* PostingUtility.m */; };
 		AE4FFE6E1CBC96E1006B3179 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4FFE6D1CBC96E1006B3179 /* CommentTableViewCell.m */; };
 		AE4FFE711CBC97EE006B3179 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4FFE701CBC97EE006B3179 /* User.m */; };
 		AE4FFE741CBCA1EE006B3179 /* UserUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4FFE731CBCA1EE006B3179 /* UserUtility.m */; };
@@ -48,6 +51,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE1C07CD1CBED7CF007BFD4A /* Organization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Organization.h; path = "Special Classes/Organization.h"; sourceTree = "<group>"; };
+		AE1C07CE1CBED7CF007BFD4A /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Organization.m; path = "Special Classes/Organization.m"; sourceTree = "<group>"; };
+		AE1C07CF1CBED7CF007BFD4A /* Posting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Posting.h; path = "Special Classes/Posting.h"; sourceTree = "<group>"; };
+		AE1C07D01CBED7CF007BFD4A /* Posting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Posting.m; path = "Special Classes/Posting.m"; sourceTree = "<group>"; };
+		AE1C07D11CBED7CF007BFD4A /* PostingUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostingUtility.h; path = "Special Classes/PostingUtility.h"; sourceTree = "<group>"; };
+		AE1C07D21CBED7CF007BFD4A /* PostingUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostingUtility.m; path = "Special Classes/PostingUtility.m"; sourceTree = "<group>"; };
 		AE4FFE6D1CBC96E1006B3179 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentTableViewCell.m; path = "Special Classes/CommentTableViewCell.m"; sourceTree = "<group>"; };
 		AE4FFE6F1CBC97EE006B3179 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = "Special Classes/User.h"; sourceTree = "<group>"; };
 		AE4FFE701CBC97EE006B3179 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = "Special Classes/User.m"; sourceTree = "<group>"; };
@@ -202,6 +211,12 @@
 				AE4FFE701CBC97EE006B3179 /* User.m */,
 				AE4FFE721CBCA1EE006B3179 /* UserUtility.h */,
 				AE4FFE731CBCA1EE006B3179 /* UserUtility.m */,
+				AE1C07CD1CBED7CF007BFD4A /* Organization.h */,
+				AE1C07CE1CBED7CF007BFD4A /* Organization.m */,
+				AE1C07CF1CBED7CF007BFD4A /* Posting.h */,
+				AE1C07D01CBED7CF007BFD4A /* Posting.m */,
+				AE1C07D11CBED7CF007BFD4A /* PostingUtility.h */,
+				AE1C07D21CBED7CF007BFD4A /* PostingUtility.m */,
 			);
 			name = "Special Classes";
 			sourceTree = "<group>";
@@ -335,16 +350,19 @@
 			files = (
 				AED6397B1CAF144100C1972E /* ViewController.m in Sources */,
 				AE4FFE741CBCA1EE006B3179 /* UserUtility.m in Sources */,
+				AE1C07D41CBED7CF007BFD4A /* Posting.m in Sources */,
 				AED639751CAF144100C1972E /* OrganizationRegisterViewController.m in Sources */,
 				AED639A01CAF155800C1972E /* TopicsViewController.m in Sources */,
 				AEEB21151CBEC90E00091DA2 /* AboutUsViewController.m in Sources */,
 				AE4FFE6E1CBC96E1006B3179 /* CommentTableViewCell.m in Sources */,
+				AE1C07D51CBED7CF007BFD4A /* PostingUtility.m in Sources */,
 				AED6399F1CAF155800C1972E /* CommentsViewController.m in Sources */,
 				AED6399E1CAF155800C1972E /* AddTopicViewController.m in Sources */,
 				AED639791CAF144100C1972E /* RegisterViewController.m in Sources */,
 				AED639A11CAF155800C1972E /* WebViewController.m in Sources */,
 				AE4FFE711CBC97EE006B3179 /* User.m in Sources */,
 				AED639731CAF144100C1972E /* OrganizationProfileViewController.m in Sources */,
+				AE1C07D31CBED7CF007BFD4A /* Organization.m in Sources */,
 				AED6399D1CAF155800C1972E /* AddCommentViewController.m in Sources */,
 				AED639721CAF144100C1972E /* AppDelegate.m in Sources */,
 				AED639491CAF132300C1972E /* main.m in Sources */,

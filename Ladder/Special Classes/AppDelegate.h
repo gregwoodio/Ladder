@@ -20,6 +20,7 @@
 #import "AddTopicViewController.h"
 #import "AddCommentViewController.h"
 #import "User.h"
+#import "Organization.h"
 #import "DashBoardViewController.h"
 #import "AboutUsViewController.h"
 #import <AVFoundation/AVFoundation.h>
@@ -42,6 +43,7 @@
     AddTopicViewController *addTopicVC;
     AddCommentViewController *addCommentVC;
     User *user;
+    Organization *organization;
     DashBoardViewController *dashVC;
     AboutUsViewController *aboutVC;
     AppDelegate *mainDelegate;
@@ -60,6 +62,7 @@
 @property (nonatomic, strong) AddTopicViewController *addTopicVC;
 @property (nonatomic, strong) AddCommentViewController *addCommentVC;
 @property (nonatomic, strong) User *user;
+@property (nonatomic, strong) Organization *organization;
 @property (nonatomic, strong) AVAudioPlayer *_audioPlayer;
 
 #pragma mark - Objects Alan

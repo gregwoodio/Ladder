@@ -14,7 +14,7 @@
 @end
 
 @implementation AppDelegate
-@synthesize  window,homeVC, profileVC, registerVC, orgProfileVC, orgRegisterVC, topicsVC, commentsVC, webVC, addTopicVC, addCommentVC, dashVC, loginVC, aboutVC, user, _audioPlayer;
+@synthesize  window,homeVC, profileVC, registerVC, orgProfileVC, orgRegisterVC, topicsVC, commentsVC, webVC, addTopicVC, addCommentVC, dashVC, loginVC, aboutVC, user, organization, _audioPlayer;
 
 #pragma mark - Navigation - Alan
 -(void)transToDash
