@@ -33,7 +33,7 @@
 -(void)transToLogin
 {
     self.aboutVC = [[AboutUsViewController alloc] initWithNibName:@"View" bundle:nil];
-    [self setupAnimation:FORWARD];
+    [self setupAnimation:BACKWARD];
     [self swapViews:self.dashVC.view goingTo:self.loginVC.view];
 }
 
