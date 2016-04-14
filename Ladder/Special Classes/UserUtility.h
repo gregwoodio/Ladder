@@ -9,8 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "User.h"
 
-@interface UserUtility : NSObject <NSURLConnectionDataDelegate, NSURLConnectionDelegate>
-{
+@interface UserUtility : NSObject {
     NSMutableData* responseData;
     User *user;
 }

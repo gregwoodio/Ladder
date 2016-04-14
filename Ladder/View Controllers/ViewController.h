@@ -13,12 +13,15 @@
     IBOutlet UIButton *loginBtn;
     IBOutlet UIButton *registerUserBtn;
     IBOutlet UIButton *registerOrgBtn;
+    IBOutlet UITextField *txtUsername;
+    IBOutlet UITextField *txtPassword;
 }
 
 @property (nonatomic, strong)IBOutlet UIButton *loginBtn;
 @property (nonatomic, strong)IBOutlet UIButton *registerUserBtn;
 @property (nonatomic, strong)IBOutlet UIButton *registerOrgBtn;
-
+@property (nonatomic, strong) IBOutlet UITextField *txtUsername;
+@property (nonatomic, strong) IBOutlet UITextField *txtPassword;
 
 @end
 

@@ -74,6 +74,8 @@
     
 }
 @property (strong, nonatomic) UIWindow *window;
+
+#pragma mark - Objects Greg
 @property (strong, nonatomic) ProfileViewController *profileVC;
 @property (strong, nonatomic) RegisterViewController *registerVC;
 @property (strong, nonatomic) ViewController *homeVC;
@@ -102,7 +104,7 @@
 @property (nonatomic) NSInteger selectedPost;
 
 
-#pragma mark - Navigation methods
+#pragma mark - Navigation methods Greg
 
 - (void) flipToRegister;
 - (void) flipToRegisterHome;
@@ -118,7 +120,7 @@
 - (void) flipToTopicsHome;
 - (void) swapViews: (UIView *)from goingTo: (UIView *)to;
 - (void) setupAnimation: (NSInteger) direction;
-- (void) loginUser: (NSString *) username pw: (NSString *) password;
+- (BOOL) loginUser: (NSString *) username pw: (NSString *) password;
 
 #pragma mark - Naviagation Methods Alan
 -(void)transToDash;
@@ -134,10 +136,6 @@
 -(void)flipToDetailedPosting;
 -(void)flipToDetailedPostingHome;
 -(void)addPosting:(Posting *)post;
-
-
-#pragma mark Navigation Methods Greg
-
 
 
 #pragma mark Navigation Methods Muska

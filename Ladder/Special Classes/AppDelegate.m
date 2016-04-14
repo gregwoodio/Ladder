@@ -250,9 +250,13 @@
 }
 
 #pragma mark - User
-- (void) loginUser: (NSString *) username pw: (NSString *) password {
+- (BOOL) loginUser: (NSString *) username pw: (NSString *) password {
     UserUtility *uu = [[UserUtility alloc] init];
     self.user = [uu retrieveUser:username pw:password];
+    if (self.user == nil) {
+        return NO;
+    }
+    return YES;
 }
 
 #pragma mark - Audio
