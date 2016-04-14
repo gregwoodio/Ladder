@@ -9,12 +9,13 @@
 #import "AppDelegate.h"
 #import "UserUtility.h"
 
+
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-@synthesize  window,homeVC, profileVC, registerVC, orgProfileVC, orgRegisterVC, topicsVC, commentsVC, webVC, addTopicVC, addCommentVC, dashVC, loginVC, aboutVC, viewPostVC, allPostingsVC, createPostVC, postings, selectedPost, user, organization, _audioPlayer;
+@synthesize  window,homeVC, profileVC, registerVC, orgProfileVC, orgRegisterVC, topicsVC, commentsVC, webVC, addTopicVC, addCommentVC, dashVC, loginVC, aboutVC, viewPostVC, allPostingsVC, createPostVC, postings, selectedPosting, user, organization, _audioPlayer;
 
 #pragma mark - Navigation - Alan
 -(void)transToDash
@@ -45,6 +46,8 @@
 
 -(void)transToPostings
 {
+    PostingUtility *pu = [[PostingUtility alloc] init];
+    self.postings = [pu getAllPostings];
     self.allPostingsVC = [[AllPostingsViewController alloc] initWithNibName:@"AllPostingsViewController" bundle:nil];
     [self setupAnimation:FORWARD];
     [self swapViews:self.dashVC.view goingTo:self.allPostingsVC.view];
@@ -121,6 +124,7 @@
 
 -(void)flipToOrgProfile {
     self.orgProfileVC = [[OrganizationProfileViewController alloc] initWithNibName:@"OrganizationProfileViewController" bundle:nil];
+    self.orgProfileVC.organization = self.organization;
     [self setupAnimation:FORWARD];
     [self swapViews: self.dashVC.view goingTo:self.orgProfileVC.view];
     [self playSound];
@@ -179,18 +183,19 @@
 //Move from create postings to view postings
 -(void)flipToCreatePostingsHome
 {
+    PostingUtility *pu = [[PostingUtility alloc] init];
+    self.postings = [pu getAllPostings];
     [self setupAnimation:BACKWARD];
     [self swapViews:self.createPostVC.view goingTo:self.allPostingsVC.view];
     [self playSound];
-    
-    
 }
 
 //Move from view all postings (home) to view detailed posting
--(void)flipToDetailedPosting
+-(void)flipToDetailedPosting: (Posting *) posting
 {
     ViewPostingsViewController *vpvc = [[ViewPostingsViewController alloc] initWithNibName:@"ViewPostingDetailsController" bundle:nil];
     self.viewPostVC = vpvc;
+    self.selectedPosting = posting;
     
     [self setupAnimation:FORWARD];
     [self swapViews:self.allPostingsVC.view goingTo:self.viewPostVC.view];
@@ -209,7 +214,9 @@
 
 -(void)addPosting:(Posting *)post
 {
-    [self.postings addObject:post];
+//    [self.postings addObject:post];
+    PostingUtility *pu = [[PostingUtility alloc] init];
+    [pu addPosting:post];
 }
 
 
@@ -217,17 +224,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //Peter's Data init
-    self.postings= [[NSMutableArray alloc] init];
+    PostingUtility *pu = [[PostingUtility alloc] init];
+    self.postings = [[pu getAllPostings] copy];
+//    self.postings= [[NSMutableArray alloc] init];
     
-    Posting *p = [[Posting alloc] init];
-    p.organizerName = @"Sheridan";
-    p.location = @"Davis";
-    p.jobTitle = @"Volunteer";
-    p.jobDescription = @"SSU volunteer position";
-    
-    [self.postings addObject:p];
-    
-    
+//    Posting *p = [[Posting alloc] init];
+//    p.organizerName = @"Sheridan";
+//    p.location = @"Davis";
+//    p.jobTitle = @"Volunteer";
+//    p.jobDescription = @"SSU volunteer position";
+//    
+//    [self.postings addObject:p];
     
     // Construct URL to sound file
     NSString *path = [NSString stringWithFormat:@"%@/pageturn.wav", [[NSBundle mainBundle] resourcePath]];
@@ -239,6 +246,7 @@
     //get the user
     UserUtility *uu = [[UserUtility alloc] init];
     self.user = [uu retrieveUser:@"caseyjones" pw:@"password"];
+    self.organization = [uu retrieveOrganization:@"sheridan" pw:@"password"];
     
     //Home screen init
     self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
@@ -253,6 +261,15 @@
 - (BOOL) loginUser: (NSString *) username pw: (NSString *) password {
     UserUtility *uu = [[UserUtility alloc] init];
     self.user = [uu retrieveUser:username pw:password];
+    if (self.user == nil) {
+        return NO;
+    }
+    return YES;
+}
+
+- (BOOL) loginOrganization: (NSString *) username pw: (NSString *) password {
+    UserUtility *uu = [[UserUtility alloc] init];
+    self.organization = [uu retrieveOrganization: username pw:password];
     if (self.user == nil) {
         return NO;
     }

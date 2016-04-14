@@ -18,7 +18,7 @@
     NSError *error;
     
     //read JSON from URL
-    NSURL *url = [NSURL URLWithString:@"http://mobile.sheridanc.on.ca/~woodgre/Ladder/AllTopics.php"];
+    NSURL *url = [NSURL URLWithString:@"http://mobile.sheridanc.on.ca/~woodgre/Ladder/GetAllPostings.php"];
     NSString *file = [[NSString alloc] initWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
     
     /*
@@ -30,8 +30,21 @@
      */
     
     //The JSON being returned was returning an array of arrays, get the [0]th element
-    self.postings = ((NSArray *)[NSJSONSerialization JSONObjectWithData: [file dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil])[0];
-    return self.postings;
+    NSArray *json = ((NSArray *)[NSJSONSerialization JSONObjectWithData: [file dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil])[0];
+    NSMutableArray *postings = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < [json count]; i++) {
+        NSDictionary *dict = [json objectAtIndex:i];
+        Posting *posting = [[Posting alloc] init];
+        posting.postingID = [dict[@"postingID"] integerValue];
+        posting.organizerName = dict[@"organizationName"];
+        posting.jobTitle = dict[@"jobTitle"];
+        posting.location = dict[@"location"];
+        posting.jobDescription = dict[@"description"];
+        [postings addObject:posting];
+    }
+    
+    return [postings copy];
 }
 
 - (Posting *) getPosting: (NSInteger) postingID {

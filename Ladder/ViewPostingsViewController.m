@@ -29,13 +29,12 @@
     //Taking the selected object
 
     AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSInteger selectedPost = mainDelegate.selectedPost;
-    Posting *selectedPosting = [mainDelegate.postings objectAtIndex:selectedPost];
+    Posting *posting = mainDelegate.selectedPosting;
     
-    NSString *jobTitle = selectedPosting.jobTitle;
-    NSString *organizer = selectedPosting.organizerName;
-    NSString *location = selectedPosting.location;
-    NSString *jobDescription = selectedPosting.jobDescription;
+    NSString *jobTitle = posting.jobTitle;
+    NSString *organizer = posting.organizerName;
+    NSString *location = posting.location;
+    NSString *jobDescription = posting.jobDescription;
 
     txtDescription.editable = NO;
     [lbTitle setText:jobTitle];
