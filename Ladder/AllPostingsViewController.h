@@ -6,6 +6,14 @@
 //  Copyright © 2016 Codebusters. All rights reserved.
 //
 
+
+
+/*  Author : Peter
+ *  Creates and Binds a TableView to AllPostingsVC
+ *  
+ */
+
+
 #import <UIKit/UIKit.h>
 
 @interface AllPostingsViewController : UIViewController  <UITableViewDataSource, UITableViewDelegate>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE1580AC1CC495AE00A9CF95 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1580AB1CC495AE00A9CF95 /* Social.framework */; };
 		AE1C07D31CBED7CF007BFD4A /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1C07CE1CBED7CF007BFD4A /* Organization.m */; };
 		AE1C07D41CBED7CF007BFD4A /* Posting.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1C07D01CBED7CF007BFD4A /* Posting.m */; };
 		AE1C07D51CBED7CF007BFD4A /* PostingUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1C07D21CBED7CF007BFD4A /* PostingUtility.m */; };
@@ -59,6 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE1580AB1CC495AE00A9CF95 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		AE1C07CD1CBED7CF007BFD4A /* Organization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Organization.h; path = "Special Classes/Organization.h"; sourceTree = "<group>"; };
 		AE1C07CE1CBED7CF007BFD4A /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Organization.m; path = "Special Classes/Organization.m"; sourceTree = "<group>"; };
 		AE1C07CF1CBED7CF007BFD4A /* Posting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Posting.h; path = "Special Classes/Posting.h"; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE1580AC1CC495AE00A9CF95 /* Social.framework in Frameworks */,
 				AEEB21361CBF0EA500091DA2 /* MapKit.framework in Frameworks */,
 				AEEB21181CBECB1C00091DA2 /* AVFoundation.framework in Frameworks */,
 			);
@@ -152,6 +155,7 @@
 		AED6393B1CAF132300C1972E = {
 			isa = PBXGroup;
 			children = (
+				AE1580AB1CC495AE00A9CF95 /* Social.framework */,
 				AEEB21351CBF0EA500091DA2 /* MapKit.framework */,
 				AEEB21171CBECB1C00091DA2 /* AVFoundation.framework */,
 				AED639461CAF132300C1972E /* Ladder */,
@@ -193,12 +197,18 @@
 		AED6395E1CAF13B300C1972E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AEEB211C1CBEFBF900091DA2 /* CreatePostingsViewController.h */,
-				AEEB211D1CBEFBF900091DA2 /* CreatePostingsViewController.m */,
-				AEEB21201CBEFBF900091DA2 /* ViewPostingsViewController.h */,
-				AEEB21211CBEFBF900091DA2 /* ViewPostingsViewController.m */,
 				AEEB21121CBEC90E00091DA2 /* AboutUsViewController.h */,
 				AEEB21131CBEC90E00091DA2 /* AboutUsViewController.m */,
+				AED639931CAF155800C1972E /* AddCommentViewController.h */,
+				AED639941CAF155800C1972E /* AddCommentViewController.m */,
+				AED639951CAF155800C1972E /* AddTopicViewController.h */,
+				AED639961CAF155800C1972E /* AddTopicViewController.m */,
+				AEEB21301CBF00B000091DA2 /* AllPostingsViewController.h */,
+				AEEB21311CBF00B000091DA2 /* AllPostingsViewController.m */,
+				AED639971CAF155800C1972E /* CommentsViewController.h */,
+				AED639981CAF155800C1972E /* CommentsViewController.m */,
+				AEEB211C1CBEFBF900091DA2 /* CreatePostingsViewController.h */,
+				AEEB211D1CBEFBF900091DA2 /* CreatePostingsViewController.m */,
 				AEEB21091CBEB7C100091DA2 /* DashBoardViewController.h */,
 				AEEB210A1CBEB7C100091DA2 /* DashBoardViewController.m */,
 				AED639641CAF144100C1972E /* OrganizationProfileViewController.h */,
@@ -207,23 +217,17 @@
 				AED639681CAF144100C1972E /* OrganizationRegisterViewController.m */,
 				AED6396A1CAF144100C1972E /* ProfileViewController.h */,
 				AED6396B1CAF144100C1972E /* ProfileViewController.m */,
-				AED6396D1CAF144100C1972E /* ProfileViewController.h */,
 				AED639AD1CAF64CB00C1972E /* RegisterViewController.h */,
 				AED6396E1CAF144100C1972E /* RegisterViewController.m */,
-				AED639701CAF144100C1972E /* ViewController.h */,
-				AED639711CAF144100C1972E /* ViewController.m */,
-				AED639931CAF155800C1972E /* AddCommentViewController.h */,
-				AED639941CAF155800C1972E /* AddCommentViewController.m */,
-				AED639951CAF155800C1972E /* AddTopicViewController.h */,
-				AED639961CAF155800C1972E /* AddTopicViewController.m */,
-				AED639971CAF155800C1972E /* CommentsViewController.h */,
-				AED639981CAF155800C1972E /* CommentsViewController.m */,
 				AED639991CAF155800C1972E /* TopicsViewController.h */,
 				AED6399A1CAF155800C1972E /* TopicsViewController.m */,
+				AED639701CAF144100C1972E /* ViewController.h */,
+				AED639711CAF144100C1972E /* ViewController.m */,
+				AEEB21201CBEFBF900091DA2 /* ViewPostingsViewController.h */,
+				AEEB21211CBEFBF900091DA2 /* ViewPostingsViewController.m */,
 				AED6399B1CAF155800C1972E /* WebViewController.h */,
 				AED6399C1CAF155800C1972E /* WebViewController.m */,
-				AEEB21301CBF00B000091DA2 /* AllPostingsViewController.h */,
-				AEEB21311CBF00B000091DA2 /* AllPostingsViewController.m */,
+				AED6396D1CAF144100C1972E /* ProfileViewController.h */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";

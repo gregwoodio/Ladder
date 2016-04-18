@@ -6,6 +6,14 @@
 //  Copyright © 2016 Muska Ahmadzai. All rights reserved.
 //
 
+
+/*
+ Author: Alan Simon
+ Description: This is the header file for the About Us View.
+ 
+ */
+
+
 #import "OrganizationProfileViewController.h"
 #import "AppDelegate.h"
 

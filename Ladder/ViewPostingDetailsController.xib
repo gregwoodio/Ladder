@@ -11,6 +11,7 @@
                 <outlet property="lbOrganizer" destination="jhd-VC-Tgc" id="jKj-Ds-ekw"/>
                 <outlet property="lbTitle" destination="AtY-RY-906" id="zqd-Qe-N4Z"/>
                 <outlet property="mapView" destination="i4O-VC-yTm" id="x2o-5d-Aga"/>
+                <outlet property="tweetBtn" destination="3aC-V0-HVZ" id="Hwx-sq-Jzp"/>
                 <outlet property="txtDescription" destination="vFH-ve-Q17" id="6rr-gc-V3B"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="Gy3-ru-yew"/>
             </connections>
@@ -83,6 +84,13 @@
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="i4O-VC-yTm">
                     <rect key="frame" x="0.0" y="311" width="320" height="218"/>
                 </mapView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aC-V0-HVZ">
+                    <rect key="frame" x="201" y="532" width="111" height="30"/>
+                    <state key="normal" title="Tweet This"/>
+                    <connections>
+                        <action selector="postToTwitter:" destination="-1" eventType="touchUpInside" id="GvE-Md-5a6"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>

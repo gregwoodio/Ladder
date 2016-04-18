@@ -6,6 +6,13 @@
 //  Copyright © 2016 Greg Wood. All rights reserved.
 //
 
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
+
 #import "TopicsViewController.h"
 #import "AppDelegate.h"
 
@@ -18,6 +25,14 @@
 @synthesize topics, tblTopics;
 
 #pragma mark - View Methods
+
+
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,6 +59,14 @@
     self.tblTopics.dataSource = self;
     self.tblTopics.delegate = self;
 }
+
+
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
 
 - (void) viewWillAppear:(BOOL)animated {
     NSError *error;
@@ -78,6 +101,14 @@
     [mainDelegate flipToTopicsHome];
 }
 
+
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
+
 /*
  * We need to get the TopicID of the topic that the user selected to send to the 
  * CommentsViewController. So we get the indexPath row that the user clicked on, compare
@@ -94,6 +125,14 @@
     [mainDelegate flipToComments: topicID titleText: topicTitle];
 }
 
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
+
+
 - (IBAction) openWebView: (id) sender {
     AppDelegate *mainDelegate = [[UIApplication sharedApplication] delegate];
     mainDelegate.webVC = [[WebViewController alloc] init];
@@ -104,6 +143,14 @@
     [mainDelegate swapViews:mainDelegate.topicsVC.view goingTo:mainDelegate.webVC.view];
 }
 
+
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
+
 - (IBAction)openAddTopic:(id)sender {
     AppDelegate *mainDelegate = [[UIApplication sharedApplication] delegate];
     mainDelegate.addTopicVC = [[AddTopicViewController alloc] init];
@@ -113,13 +160,37 @@
 
 #pragma mark - TableView methods
 
+
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
+
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.topics count];
 }
 
+
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
+
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60;
 }
+
+
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *commentCellIdentifier = @"CommentCell";

@@ -6,6 +6,14 @@
 //  Copyright © 2016 Greg Wood. All rights reserved.
 //
 
+
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
+
 #import "AddCommentViewController.h"
 #import "AppDelegate.h"
 
@@ -29,6 +37,14 @@
 }
 
 #pragma mark - Add Comment method
+
+
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
 
 // This method is the meat and potatoes of the AddCommentViewController.
 // Creates a POST request to a PHP script that adds the data to the database,
@@ -86,6 +102,15 @@
 
 
 #pragma mark - Navigation
+
+
+/*
+ Author: Greg Wood
+ Transition from current view to Comments View.
+
+ 
+ 
+ */
 
 - (IBAction)returnToSender:(id)sender {
     //You can only navigate to Add Comment from Comments. Go back

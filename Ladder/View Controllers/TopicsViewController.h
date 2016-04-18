@@ -6,6 +6,13 @@
 //  Copyright © 2016 Greg Wood. All rights reserved.
 //
 
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
+
 #import <UIKit/UIKit.h>
 #import "CommentsViewController.h"
 

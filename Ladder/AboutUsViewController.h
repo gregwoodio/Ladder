@@ -6,6 +6,14 @@
 //  Copyright © 2016 Sheridan College. All rights reserved.
 //
 
+/*
+    Author: Alan Simon
+    Description: This is the header file for the About Us View.
+ 
+ */
+
+
+
 #import <UIKit/UIKit.h>
 
 @interface AboutUsViewController : UIViewController <UIWebViewDelegate>

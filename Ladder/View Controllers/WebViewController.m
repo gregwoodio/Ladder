@@ -6,6 +6,14 @@
 //  Copyright © 2016 Greg Wood. All rights reserved.
 //
 
+
+/*
+    Author: Greg Wood
+ 
+ 
+ 
+ */
+
 #import "WebViewController.h"
 #import "AppDelegate.h"
 
@@ -30,15 +38,36 @@
 
 #pragma mark - Web View methods
 
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
+
 - (void) webViewDidStartLoad:(UIWebView *)webView {
     [activity startAnimating];
     [activity setHidden: NO];
 }
 
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
+
 - (void) webViewDidFinishLoad:(UIWebView *)webView {
     [activity stopAnimating];
     [activity setHidden:YES];
 }
+
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
 
 - (IBAction)returnToSender:(id)sender {
     AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];

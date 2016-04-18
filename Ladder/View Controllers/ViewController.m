@@ -6,6 +6,12 @@
 //  Copyright © 2016 Muska Ahmadzai. All rights reserved.
 //
 
+/*
+    Author: Muska Ahmadzai
+    This is legacy code.
+ 
+ */
+
 #import "ViewController.h"
 #import "AppDelegate.h"
 

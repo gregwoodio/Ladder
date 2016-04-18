@@ -6,6 +6,13 @@
 //  Copyright © 2016 Peter Phan. All rights reserved.
 //
 
+/*
+ Author: Peter Phan
+ Description: 
+ 
+ */
+
+
 #import <UIKit/UIKit.h>
 
 @interface CreatePostingsViewController : UIViewController

@@ -6,6 +6,15 @@
 //  Copyright © 2016 Sheridan College. All rights reserved.
 //
 
+
+/*
+ Author: Alan Simon
+ Description: This is the header file for the Dashboard View.
+ This view will provide access to all other functions of the application.
+ It will be treated like a root level controller.
+ */
+
+
 #import <UIKit/UIKit.h>
 
 @interface DashBoardViewController : UIViewController

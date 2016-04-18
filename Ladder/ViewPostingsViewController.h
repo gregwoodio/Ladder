@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MapKit/MapKit.h"
 
+
 @interface ViewPostingsViewController : UIViewController
 {
     IBOutlet UILabel *lbTitle;
@@ -16,6 +17,7 @@
     IBOutlet UITextView *txtDescription;
     IBOutlet UILabel *lbLocation;
     IBOutlet MKMapView *mapView;
+    IBOutlet UIButton *tweetBtn;
 }
 
 @property (nonatomic, strong) IBOutlet UILabel *lbTitle;
@@ -23,5 +25,9 @@
 @property (nonatomic, strong) IBOutlet UITextView *txtDescription;
 @property (nonatomic, strong) IBOutlet UILabel *lbLocation;
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
+@property (nonatomic, strong) IBOutlet UIButton *tweetBtn;
+
+- (IBAction)postToTwitter:(id)sender;
+
 
 @end

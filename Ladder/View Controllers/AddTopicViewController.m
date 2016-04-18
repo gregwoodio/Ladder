@@ -6,6 +6,13 @@
 //  Copyright © 2016 Greg Wood. All rights reserved.
 //
 
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
+
 #import "AddTopicViewController.h"
 #import "AppDelegate.h"
 
@@ -28,6 +35,14 @@
 }
 
 #pragma mark - Add Topic method
+
+
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
 
 // This method is the meat and potatoes of the AddTopicViewController.
 // Creates a POST request to a PHP script that adds the data to the database,
@@ -85,6 +100,13 @@
 
 
 #pragma mark - Navigation
+
+/*
+ Author: Greg Wood
+ Transition from current view to Topics View.
+ 
+ 
+ */
 
 - (IBAction)returnToSender:(id)sender {
     //You can only navigate to Add Topics from Topics. Go back

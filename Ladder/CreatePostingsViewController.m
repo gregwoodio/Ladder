@@ -6,6 +6,14 @@
 //  Copyright © 2016 Peter Phan. All rights reserved.
 //
 
+
+/*
+ Author: Peter Phan
+ Description:
+ 
+ */
+
+
 #import "CreatePostingsViewController.h"
 #import "AppDelegate.h"
 

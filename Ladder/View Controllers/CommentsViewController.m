@@ -6,6 +6,14 @@
 //  Copyright © 2016 Greg Wood. All rights reserved.
 //
 
+
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
+
 #import "CommentsViewController.h"
 #import "AppDelegate.h"
 #import "CommentTableViewCell.h"
@@ -18,6 +26,12 @@
 
 @synthesize commentsArray, navbar, tblComments, topicID, titleText;
 
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -42,12 +56,25 @@
 
 }
 
+
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
 - (void) viewWillAppear:(BOOL)animated {
     
     [tblComments reloadData];
     
 }
 
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -55,15 +82,36 @@
 
 #pragma mark - TableView methods
 
+
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     //TODO: Make this a variable height depending on comment length
     return 120;
 }
 
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.commentsArray count];
 }
 
+
+
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *simpleTableIdentifier = @"CommentCell";
     CommentTableViewCell *cell = (CommentTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -86,11 +134,26 @@
 
 #pragma mark - Navigation
 
+
+/*
+ Author: Greg Wood
+ Transitions the view to Topics View.
+ 
+ 
+ */
 - (IBAction)returnToTopics: (id)sender {
     AppDelegate *mainDelegate = [[UIApplication sharedApplication] delegate];
     [mainDelegate flipToCommentsBack];
 }
 
+
+
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
 - (IBAction)openAddComment:(id)sender {
     AppDelegate *mainDelegate = [[UIApplication sharedApplication] delegate];
     mainDelegate.addCommentVC = [[AddCommentViewController alloc] init];
@@ -100,6 +163,14 @@
     [mainDelegate swapViews:mainDelegate.commentsVC.view goingTo:mainDelegate.addCommentVC.view];
 }
 
+
+
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
 - (IBAction) openWebView: (id) sender {
     AppDelegate *mainDelegate = [[UIApplication sharedApplication] delegate];
     mainDelegate.webVC = [[WebViewController alloc] init];

@@ -9,29 +9,31 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
-#import "ViewController.h"
+#import "WebViewController.h"
+
+
+
+#pragma mark - Muska's Imports
 #import "RegisterViewController.h"
 #import "ProfileViewController.h"
 #import "OrganizationProfileViewController.h"
 #import "OrganizationRegisterViewController.h"
-#import "TopicsViewController.h"
-#import "CommentsViewController.h"
-#import "WebViewController.h"
-#import "AddTopicViewController.h"
-#import "AddCommentViewController.h"
 #import "User.h"
 #import "Organization.h"
 
+#pragma mark - Greg's Imports
+#import "TopicsViewController.h"
+#import "CommentsViewController.h"
+#import "AddTopicViewController.h"
+#import "AddCommentViewController.h"
 
 #pragma mark - Alan's Imports
-
+#import "ViewController.h"
 #import "DashBoardViewController.h"
 #import "AboutUsViewController.h"
-
 #import <AVFoundation/AVFoundation.h>
 
 #pragma mark - Peter's Imports
-
 #import "CreatePostingsViewController.h"
 #import "AllPostingsViewController.h"
 #import "ViewPostingsViewController.h"
@@ -74,21 +76,29 @@
     
 }
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) AVAudioPlayer *_audioPlayer;
+
+#pragma mark - Objects Muska
 @property (strong, nonatomic) ProfileViewController *profileVC;
 @property (strong, nonatomic) RegisterViewController *registerVC;
-@property (strong, nonatomic) ViewController *homeVC;
 @property (strong, nonatomic) OrganizationProfileViewController *orgProfileVC;
 @property (strong, nonatomic) OrganizationRegisterViewController *orgRegisterVC;
+@property (nonatomic, strong) User *user;
+@property (nonatomic, strong) Organization *organization;
+
+
+
+#pragma mark - Objects Greg
 @property (nonatomic, strong) TopicsViewController *topicsVC;
 @property (nonatomic, strong) CommentsViewController *commentsVC;
 @property (nonatomic, strong) WebViewController *webVC;
 @property (nonatomic, strong) AddTopicViewController *addTopicVC;
 @property (nonatomic, strong) AddCommentViewController *addCommentVC;
-@property (nonatomic, strong) User *user;
-@property (nonatomic, strong) Organization *organization;
-@property (nonatomic, strong) AVAudioPlayer *_audioPlayer;
+
+
 
 #pragma mark - Objects Alan
+@property (strong, nonatomic) ViewController *homeVC;
 @property (strong, nonatomic) ViewController *loginVC;
 @property (strong, nonatomic) DashBoardViewController *dashVC;
 @property (strong, nonatomic) AboutUsViewController *aboutVC;
