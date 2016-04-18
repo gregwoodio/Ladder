@@ -26,6 +26,7 @@
                     <items>
                         <navigationItem title="Viewed Posting" id="ZX1-Aj-PXr">
                             <barButtonItem key="leftBarButtonItem" title="Back" id="Jo6-9Z-x3V">
+                                <color key="tintColor" red="0.031372549020000001" green="0.54901960780000003" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="goViewAllPostings:" destination="-1" id="s7g-mZ-UhJ"/>
                                 </connections>
@@ -34,11 +35,14 @@
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3aC-V0-HVZ">
                                     <rect key="frame" x="241" y="7" width="63" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Tweet"/>
+                                    <state key="normal" title="Tweet">
+                                        <color key="titleColor" red="0.031372549020000001" green="0.54901960780000003" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="postToTwitter:" destination="-1" eventType="touchUpInside" id="GvE-Md-5a6"/>
                                     </connections>
                                 </button>
+                                <color key="tintColor" red="0.031372549020000001" green="0.54901960780000003" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                             </barButtonItem>
                         </navigationItem>
                     </items>

@@ -27,6 +27,7 @@
                     <items>
                         <navigationItem title="Organization Registration" id="UAU-8X-Mh9">
                             <barButtonItem key="leftBarButtonItem" title="Home" id="cZr-qK-Jb0">
+                                <color key="tintColor" red="0.031372549020000001" green="0.54901960780000003" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="goHome:" destination="-1" id="z07-tl-yXx"/>
                                 </connections>
@@ -36,7 +37,9 @@
                 </navigationBar>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9uO-FY-TRc">
                     <rect key="frame" x="132" y="522" width="57" height="30"/>
-                    <state key="normal" title="Register"/>
+                    <state key="normal" title="Register">
+                        <color key="titleColor" red="0.031372549020000001" green="0.54901960780000003" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="addUser:" destination="-1" eventType="touchUpInside" id="dMP-Np-MdP"/>
                     </connections>

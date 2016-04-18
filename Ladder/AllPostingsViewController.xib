@@ -21,6 +21,7 @@
                     <items>
                         <navigationItem title="Volunteer Postings" id="nao-ie-TmF">
                             <barButtonItem key="leftBarButtonItem" title="Back" id="18V-rN-DVe">
+                                <color key="tintColor" red="0.031372549020000001" green="0.54901960780000003" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="goToDashFromPostings:" destination="-1" id="9OX-HY-eYu"/>
                                 </connections>

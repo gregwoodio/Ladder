@@ -21,8 +21,9 @@
                 <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iKM-7s-atw">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <items>
-                        <navigationItem id="yMC-aj-OKz">
+                        <navigationItem title="Add A Comment" id="yMC-aj-OKz">
                             <barButtonItem key="leftBarButtonItem" title="Back" id="4bN-ez-JUg">
+                                <color key="tintColor" red="0.031372549020000001" green="0.54901960780000003" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="returnToSender:" destination="-1" id="Nba-Lg-V7O"/>
                                 </connections>

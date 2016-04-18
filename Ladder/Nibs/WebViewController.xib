@@ -22,6 +22,7 @@
                     <items>
                         <navigationItem title="Ladder" id="m0n-QZ-JLy">
                             <barButtonItem key="leftBarButtonItem" title="Back" id="wK7-kf-ZIi">
+                                <color key="tintColor" red="0.031372549020000001" green="0.54901960780000003" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="returnToSender:" destination="-1" id="fc1-k8-S67"/>
                                 </connections>

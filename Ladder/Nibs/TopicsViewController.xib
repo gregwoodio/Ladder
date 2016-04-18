@@ -21,6 +21,7 @@
                     <items>
                         <navigationItem title="Forum Topics" id="O2A-mR-MHk">
                             <barButtonItem key="leftBarButtonItem" title="Back" id="QuX-PI-WC9">
+                                <color key="tintColor" red="0.031372549020000001" green="0.54901960780000003" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="flipToHome:" destination="-1" id="IdD-TE-FUw"/>
                                 </connections>

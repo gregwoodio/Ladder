@@ -24,6 +24,7 @@
                     <items>
                         <navigationItem title="Create Posting" id="8s8-ZT-BOr">
                             <barButtonItem key="leftBarButtonItem" title="Back" id="1cG-UD-Bsk">
+                                <color key="tintColor" red="0.031372549020000001" green="0.54901960780000003" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="goViewAllPostings:" destination="-1" id="fZ8-RM-WQ6"/>
                                 </connections>
