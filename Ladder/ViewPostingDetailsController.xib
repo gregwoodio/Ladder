@@ -30,6 +30,16 @@
                                     <action selector="goViewAllPostings:" destination="-1" id="s7g-mZ-UhJ"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" style="plain" id="ek4-OJ-N4B">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3aC-V0-HVZ">
+                                    <rect key="frame" x="241" y="7" width="63" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Tweet"/>
+                                    <connections>
+                                        <action selector="postToTwitter:" destination="-1" eventType="touchUpInside" id="GvE-Md-5a6"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
                         </navigationItem>
                     </items>
                 </navigationBar>
@@ -84,13 +94,6 @@
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="i4O-VC-yTm">
                     <rect key="frame" x="0.0" y="311" width="320" height="218"/>
                 </mapView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aC-V0-HVZ">
-                    <rect key="frame" x="201" y="532" width="111" height="30"/>
-                    <state key="normal" title="Tweet This"/>
-                    <connections>
-                        <action selector="postToTwitter:" destination="-1" eventType="touchUpInside" id="GvE-Md-5a6"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>

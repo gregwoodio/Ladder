@@ -18,8 +18,6 @@
 #import "AllPostingsViewController.h"
 #import "AppDelegate.h"
 
-
-
 @interface AllPostingsViewController ()
 
 @end
@@ -98,9 +96,9 @@
 {
     AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    mainDelegate.selectedPost = indexPath.row;
+    Posting *posting = (Posting*)[[mainDelegate postings] objectAtIndex: indexPath.row];
     
-    [mainDelegate flipToDetailedPosting];
+    [mainDelegate flipToDetailedPosting: posting];
 }
 
 /*  Author : Alan

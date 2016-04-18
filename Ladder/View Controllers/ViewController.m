@@ -20,7 +20,7 @@
 @end
 
 @implementation ViewController
-@synthesize loginBtn, registerOrgBtn, registerUserBtn;
+@synthesize loginBtn, registerOrgBtn, registerUserBtn, txtPassword, txtUsername;
 
 
 -(IBAction)goToRegister:(id)sender
@@ -49,7 +49,15 @@
 -(IBAction)loginClick:(id)sender
 {
     AppDelegate *mainDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    [mainDelegate transToDash];
+    if ([mainDelegate loginUser:txtUsername.text pw: txtPassword.text]) {
+        [mainDelegate transToDash];
+    } else {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle: @"Failure." message:@"Login failed." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                   handler: nil];
+        [alert addAction:ok];
+        [self presentViewController:alert animated: YES completion:nil];
+    }
 }
 
 @end

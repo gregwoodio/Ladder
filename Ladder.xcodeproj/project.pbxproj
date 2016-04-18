@@ -258,23 +258,23 @@
 		AED639601CAF13D100C1972E /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
+				AEEB21141CBEC90E00091DA2 /* AboutUsViewController.xib */,
+				AED639841CAF150000C1972E /* AddCommentViewController.xib */,
+				AED639851CAF150000C1972E /* AddTopicViewController.xib */,
+				AEEB21321CBF00B000091DA2 /* AllPostingsViewController.xib */,
+				AED639861CAF150000C1972E /* CommentsViewController.xib */,
+				AED639871CAF150000C1972E /* CommentTableViewCell.xib */,
 				AEEB21251CBEFC1300091DA2 /* CreatePostingsViewController.xib */,
-				AEEB21271CBEFC1300091DA2 /* ViewPostingDetailsController.xib */,
+				AEEB210B1CBEB7C100091DA2 /* DashBoardViewController.xib */,
 				AEEB21101CBEBFEB00091DA2 /* LaunchScreen.storyboard */,
-				AEEB210E1CBEBF4A00091DA2 /* View.xib */,
 				AED639661CAF144100C1972E /* OrganizationProfileViewController.xib */,
 				AED639691CAF144100C1972E /* OrganizationRegisterViewController.xib */,
 				AED6396C1CAF144100C1972E /* ProfileViewController.xib */,
 				AED6396F1CAF144100C1972E /* RegisterViewController.xib */,
-				AED639841CAF150000C1972E /* AddCommentViewController.xib */,
-				AED639851CAF150000C1972E /* AddTopicViewController.xib */,
-				AED639861CAF150000C1972E /* CommentsViewController.xib */,
-				AED639871CAF150000C1972E /* CommentTableViewCell.xib */,
 				AED639881CAF150000C1972E /* TopicsViewController.xib */,
+				AEEB210E1CBEBF4A00091DA2 /* View.xib */,
+				AEEB21271CBEFC1300091DA2 /* ViewPostingDetailsController.xib */,
 				AED639891CAF150000C1972E /* WebViewController.xib */,
-				AEEB210B1CBEB7C100091DA2 /* DashBoardViewController.xib */,
-				AEEB21141CBEC90E00091DA2 /* AboutUsViewController.xib */,
-				AEEB21321CBF00B000091DA2 /* AllPostingsViewController.xib */,
 			);
 			name = Nibs;
 			sourceTree = "<group>";

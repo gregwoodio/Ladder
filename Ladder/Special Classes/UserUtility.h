@@ -8,15 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import "User.h"
+#import "Organization.h"
 
-@interface UserUtility : NSObject <NSURLConnectionDataDelegate, NSURLConnectionDelegate>
-{
+@interface UserUtility : NSObject {
     NSMutableData* responseData;
     User *user;
+    Organization *org;
 }
 @property (nonatomic, strong) NSData *responseData;
 @property (nonatomic, strong) User *user;
+@property (nonatomic, strong) Organization *org;
 
 - (User *) retrieveUser: (NSString *)username pw:(NSString *)password;
+- (Organization *) retrieveOrganization: (NSString *)username pw:(NSString *)password;
 
 @end

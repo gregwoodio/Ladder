@@ -27,6 +27,11 @@
 #import "AddTopicViewController.h"
 #import "AddCommentViewController.h"
 
+#import "User.h"
+#import "Organization.h"
+#import "PostingUtility.h"
+
+
 #pragma mark - Alan's Imports
 #import "ViewController.h"
 #import "DashBoardViewController.h"
@@ -37,7 +42,6 @@
 #import "CreatePostingsViewController.h"
 #import "AllPostingsViewController.h"
 #import "ViewPostingsViewController.h"
-#import "Posting.h"
 #import "SiteCell.h"
 
 #pragma mark Constants Declared
@@ -71,14 +75,18 @@
     AllPostingsViewController *allPostingsVC;
     CreatePostingsViewController *createPostVC;
     ViewPostingsViewController *viewPostVC;
-    NSMutableArray *postings;
-    NSInteger selectedPost;
+    NSArray *postings;
+    Posting *selectedPosting;
     
 }
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) AVAudioPlayer *_audioPlayer;
 
 #pragma mark - Objects Muska
+
+
+#pragma mark - Objects Greg
+
 @property (strong, nonatomic) ProfileViewController *profileVC;
 @property (strong, nonatomic) RegisterViewController *registerVC;
 @property (strong, nonatomic) OrganizationProfileViewController *orgProfileVC;
@@ -108,11 +116,11 @@
 @property (strong, nonatomic) AllPostingsViewController *allPostingsVC;
 @property (strong, nonatomic) CreatePostingsViewController *createPostVC;
 @property (strong, nonatomic) ViewPostingsViewController *viewPostVC;
-@property (strong, nonatomic) NSMutableArray *postings;
-@property (nonatomic) NSInteger selectedPost;
+@property (strong, nonatomic) NSArray *postings;
+@property (nonatomic, strong) Posting *selectedPosting;
 
 
-#pragma mark - Navigation methods
+#pragma mark - Navigation methods Greg
 
 - (void) flipToRegister;
 - (void) flipToRegisterHome;
@@ -128,7 +136,8 @@
 - (void) flipToTopicsHome;
 - (void) swapViews: (UIView *)from goingTo: (UIView *)to;
 - (void) setupAnimation: (NSInteger) direction;
-- (void) loginUser: (NSString *) username pw: (NSString *) password;
+- (BOOL) loginUser: (NSString *) username pw: (NSString *) password;
+- (BOOL) loginOrganization: (NSString *) username pw: (NSString *) password;
 
 #pragma mark - Naviagation Methods Alan
 -(void)transToDash;
@@ -141,13 +150,9 @@
 #pragma mark Navigation Methods Peter
 -(void)flipToCreatePostings;
 -(void)flipToCreatePostingsHome;
--(void)flipToDetailedPosting;
+-(void)flipToDetailedPosting: (Posting *) post;
 -(void)flipToDetailedPostingHome;
 -(void)addPosting:(Posting *)post;
-
-
-#pragma mark Navigation Methods Greg
-
 
 
 #pragma mark Navigation Methods Muska

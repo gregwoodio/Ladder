@@ -22,7 +22,7 @@
 @end
 
 @implementation OrganizationProfileViewController
-@synthesize lbAddress,lbWebsite,lbMissionStatement,lbOrganizationName,imgProfilePicture;
+@synthesize lbAddress,lbWebsite,lbMissionStatement,lbOrganizationName,imgProfilePicture, organization;
 
 -(IBAction)goHome:(id)sender
 {
@@ -33,7 +33,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    lbAddress.text = organization.address;
+//    lbWebsite.text = organization.url;
+    lbMissionStatement.text = organization.missionStatement;
+    lbOrganizationName.text = organization.organizationName;
+//    imgProfilePicture.image = [[UIImage ]]
 }
 
 - (void)didReceiveMemoryWarning {

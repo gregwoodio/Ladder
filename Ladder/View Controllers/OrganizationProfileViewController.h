@@ -15,6 +15,7 @@
 
 
 #import <UIKit/UIKit.h>
+#import "Organization.h"
 
 @interface OrganizationProfileViewController : UIViewController
 {
@@ -26,6 +27,7 @@
     IBOutlet UILabel *lbOrganizationName;
     IBOutlet UITextView *lbAddress;
     IBOutlet UITextView *lbMissionStatement;
+    Organization *organization;
 
 }
 @property (strong, nonatomic) IBOutlet UILabel *lbWebsite;
@@ -34,5 +36,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lbOrganizationName;
 @property (strong, nonatomic) IBOutlet UITextView *lbAddress;
 @property (strong, nonatomic) IBOutlet UITextView *lbMissionStatement;
+
+@property (nonatomic, strong) Organization *organization;
 
 @end

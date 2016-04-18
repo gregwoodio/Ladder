@@ -42,13 +42,12 @@
     //Taking the selected object
 
     AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSInteger selectedPost = mainDelegate.selectedPost;
-    Posting *selectedPosting = [mainDelegate.postings objectAtIndex:selectedPost];
+    Posting *posting = mainDelegate.selectedPosting;
     
-    NSString *jobTitle = selectedPosting.jobTitle;
-    NSString *organizer = selectedPosting.organizerName;
-    NSString *location = selectedPosting.location;
-    NSString *jobDescription = selectedPosting.jobDescription;
+    NSString *jobTitle = posting.jobTitle;
+    NSString *organizer = posting.organizerName;
+    NSString *location = posting.location;
+    NSString *jobDescription = posting.jobDescription;
 
     txtDescription.editable = NO;
     [lbTitle setText:jobTitle];
@@ -114,8 +113,9 @@
 - (IBAction)postToTwitter:(id)sender {
     
     AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSInteger selectedPost = mainDelegate.selectedPost;
-    Posting *selectedPosting = [mainDelegate.postings objectAtIndex:selectedPost];
+    Posting *posting = mainDelegate.selectedPosting;
+    
+    NSString *jobDescription = posting.jobDescription;
     
     //Originally the if condition checked to see if the Twitter service was available
     // but due to some unknown error, I can't actually login to Twitter...
@@ -127,7 +127,7 @@
                                                composeViewControllerForServiceType:SLServiceTypeTwitter];
     //Set the text so that when the editable tweet appears, it will automatically
     //have the description set
-        [tweetSheet setInitialText:selectedPosting.jobDescription];
+        [tweetSheet setInitialText:jobDescription];
         [self presentViewController:tweetSheet animated:YES completion:nil];
     //}
     

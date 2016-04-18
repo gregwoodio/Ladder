@@ -117,7 +117,7 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     AppDelegate *mainDelegate = [[UIApplication sharedApplication] delegate];
     NSDictionary *dict = ((NSDictionary *)[self.topics objectAtIndex:indexPath.row]);
-    NSInteger *topicID = [((NSString *)[dict objectForKey:@"TopicID"]) integerValue];
+    NSInteger topicID = [([dict objectForKey:@"TopicID"]) integerValue];
     NSString *topicTitle = [dict objectForKey:@"Title"];
     
     NSLog(@"topicTitle in topicsVC: %@", topicTitle);
