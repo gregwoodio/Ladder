@@ -30,8 +30,7 @@
 /*
  Author: Greg Wood
  
- 
- 
+ On load, this method will fill the topics array with all the names of the topics using the json call.
  */
 
 - (void)viewDidLoad {
@@ -64,9 +63,7 @@
 /*
  Author: Greg Wood
  
- 
- 
- */
+*/
 
 - (void) viewWillAppear:(BOOL)animated {
     NSError *error;
@@ -105,9 +102,7 @@
 /*
  Author: Greg Wood
  
- 
- 
- */
+*/
 
 /*
  * We need to get the TopicID of the topic that the user selected to send to the 
@@ -128,8 +123,6 @@
 /*
  Author: Greg Wood
  
- 
- 
  */
 
 
@@ -147,8 +140,7 @@
 /*
  Author: Greg Wood
  
- 
- 
+ Method will transistion current view to Add Topic view.
  */
 
 - (IBAction)openAddTopic:(id)sender {
@@ -164,7 +156,7 @@
 /*
  Author: Greg Wood
  
- 
+ Method taught in class for Tables
  
  */
 
@@ -176,8 +168,7 @@
 /*
  Author: Greg Wood
  
- 
- 
+ Method taught in class for Tables
  */
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -188,8 +179,7 @@
 /*
  Author: Greg Wood
  
- 
- 
+ Method taught in class for Tables
  */
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
