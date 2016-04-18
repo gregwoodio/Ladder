@@ -6,13 +6,22 @@
 //  Copyright © 2016 Muska Ahmadzai. All rights reserved.
 //
 
+
+
+/*
+ Author: Muska Ahmadzai
+ 
+ 
+ 
+ */
+
+
 #import "ProfileViewController.h"
 #import "AppDelegate.h"
 
 @interface ProfileViewController ()
 
 @end
-
 @implementation ProfileViewController
 
 @synthesize lbAcademicStatus,lbDescription,lbEmail,lbFirstName,lbLastName,lbResume,imgProfilePicture;

@@ -8,8 +8,8 @@
 
 /*
  Author: Greg Wood
- 
- 
+ This is the m file for Add Topics view.
+ The user will have the ability to add a Topic to the forum.
  
  */
 
@@ -39,14 +39,12 @@
 
 /*
  Author: Greg Wood
- 
- 
- 
+ // This method is the meat and potatoes of the AddTopicViewController.
+ // Creates a POST request to a PHP script that adds the data to the database,
+ // then redirects the user back to the TopicsView.
  */
 
-// This method is the meat and potatoes of the AddTopicViewController.
-// Creates a POST request to a PHP script that adds the data to the database,
-// then redirects the user back to the TopicsView.
+
 - (IBAction)addTopic:(id)sender {
     
     //TODO: Text validation first! 
@@ -104,8 +102,6 @@
 /*
  Author: Greg Wood
  Transition from current view to Topics View.
- 
- 
  */
 
 - (IBAction)returnToSender:(id)sender {

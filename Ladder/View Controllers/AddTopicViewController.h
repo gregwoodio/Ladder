@@ -8,10 +8,8 @@
 
 /*
  Author: Greg Wood
- 
- 
- 
- */
+ This is the header file for Add Topics view.
+  */
 
 #import <UIKit/UIKit.h>
 

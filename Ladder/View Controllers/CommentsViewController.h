@@ -9,9 +9,7 @@
 
 /*
  Author: Greg Wood
- 
- 
- 
+    This is the header file for the Comments View
  */
 
 #import <UIKit/UIKit.h>

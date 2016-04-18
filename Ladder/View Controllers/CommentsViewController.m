@@ -9,7 +9,8 @@
 
 /*
  Author: Greg Wood
- 
+ This is the m file for the Comments View
+ This m file will display all the comments in a Topics
  
  
  */
@@ -85,7 +86,7 @@
 
 /*
  Author: Greg Wood
- 
+ Method taught in class to give the cell a size.
  
  
  */
@@ -96,7 +97,7 @@
 
 /*
  Author: Greg Wood
- 
+ Method returns the numbers of rows that exist.
  
  
  */
@@ -108,9 +109,8 @@
 
 /*
  Author: Greg Wood
- 
- 
- 
+ This method will populate the cell with the comment and the author of the comment.
+ This is populated through the information from that is obtained in the JSON callback.
  */
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *simpleTableIdentifier = @"CommentCell";
@@ -150,9 +150,7 @@
 
 /*
  Author: Greg Wood
- 
- 
- 
+ This method will transition the view to Add Comments view while tracking the topic id and title should the user submit the comment.
  */
 - (IBAction)openAddComment:(id)sender {
     AppDelegate *mainDelegate = [[UIApplication sharedApplication] delegate];
@@ -168,8 +166,7 @@
 /*
  Author: Greg Wood
  
- 
- 
+
  */
 - (IBAction) openWebView: (id) sender {
     AppDelegate *mainDelegate = [[UIApplication sharedApplication] delegate];

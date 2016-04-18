@@ -121,7 +121,6 @@
 
 
 #pragma mark - Navigation methods Greg
-
 - (void) flipToRegister;
 - (void) flipToRegisterHome;
 - (void) flipToProfile;

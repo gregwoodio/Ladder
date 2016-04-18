@@ -9,8 +9,8 @@
 
 /*
  Author: Greg Wood
- 
- 
+ Description: This is the m file for the Add Comment View.
+ The user will have the ability to submit a comment to the topic thread they have entered
  
  */
 
@@ -36,19 +36,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Add Comment method
+#pragma mark - Add Comment Methods
 
 
 /*
  Author: Greg Wood
- 
- 
- 
+ // This method is the meat and potatoes of the AddCommentViewController.
+ // Creates a POST request to a PHP script that adds the data to the database,
+ // then redirects the user back to the CommentsView.
  */
-
-// This method is the meat and potatoes of the AddCommentViewController.
-// Creates a POST request to a PHP script that adds the data to the database,
-// then redirects the user back to the CommentsView.
 - (IBAction)addComment:(id)sender {
     
     //TODO: Text validation first!
@@ -107,9 +103,6 @@
 /*
  Author: Greg Wood
  Transition from current view to Comments View.
-
- 
- 
  */
 
 - (IBAction)returnToSender:(id)sender {

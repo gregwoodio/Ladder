@@ -6,6 +6,14 @@
 //  Copyright © 2016 Muska Ahmadzai. All rights reserved.
 //
 
+
+/*
+ Author: Muska Ahmadzai
+ 
+ 
+ 
+ */
+
 #import <UIKit/UIKit.h>
 
 @interface RegisterViewController : UIViewController

@@ -6,6 +6,13 @@
 //  Copyright © 2016 Muska Ahmadzai. All rights reserved.
 //
 
+/*
+ Author: Muska Ahmadzai
+ 
+ 
+ 
+ */
+
 #import "RegisterViewController.h"
 #import "ProfileViewController.h"
 #import "AppDelegate.h"
@@ -19,24 +26,48 @@
 @synthesize txtUsername, txtDescription,txtEmail,txtFirstName,txtLastName,txtPassword,txtResume,imgProfilePicture, sgAcademicStatus, txtPicturePath;
 
 
-
+/*
+ Author: Muska Ahmadzai
+ 
+ 
+ 
+ */
 -(IBAction)goHome:(id)sender
 {
     AppDelegate *mainDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     [mainDelegate flipToRegisterHome];
 }
 
+/*
+ Author: Muska Ahmadzai
+ 
+ 
+ 
+ */
 -(IBAction)goProfile:(id)sender
 {
     AppDelegate *mainDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     [mainDelegate flipToProfile];
 }
 
+/*
+ Author: Muska Ahmadzai
+ 
+ 
+ 
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
 
+
+/*
+ Author: Muska Ahmadzai
+ 
+ 
+ 
+ */
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -54,6 +85,13 @@
 
 #pragma mark - Add User method
 
+
+/*
+ Author: Greg Wood
+ 
+ 
+ 
+ */
 -(IBAction)addUser:(id)sender{
     //make the POST string
     NSString *post = [NSString stringWithFormat:@"Username=%@&FirstName=%@&LastName=%@&Password=%@&Email=%@&Description=%@&Resume=%@&AcademicStatus=%@&Picture=%@",
