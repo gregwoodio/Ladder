@@ -245,8 +245,8 @@
     
     //get the user
     UserUtility *uu = [[UserUtility alloc] init];
-    self.user = [uu retrieveUser:@"caseyjones" pw:@"password"];
-    self.organization = [uu retrieveOrganization:@"sheridan" pw:@"password"];
+    //self.user = [uu retrieveUser:@"caseyjones" pw:@"password"];
+    //self.organization = [uu retrieveOrganization:@"sheridan" pw:@"password"];
     
     //Home screen init
     self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
@@ -260,7 +260,7 @@
 #pragma mark - User
 - (BOOL) loginUser: (NSString *) username pw: (NSString *) password {
     UserUtility *uu = [[UserUtility alloc] init];
-    self.user = [uu retrieveUser:username pw:password];
+    self.user = [uu login:username pw:password];
     if (self.user == nil) {
         return NO;
     }
