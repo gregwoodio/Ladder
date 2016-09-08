@@ -46,18 +46,24 @@
     @try {
         NSLog(@"intry?");
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:strData options:0 error:&err];
-        NSString *success = [dict objectForKey:@"success"];
-        if ([success isEqualToString:@"true"]) {
-            NSLog(@"yes?");
-            NSString *token = [dict objectForKey:@"token"];
-            AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-            mainDelegate.token = token;
 
-            //now make a second request using the token to get the user or organization
-            //TODO: Add fixes to return an Organization from the same login method
-            return [self retrieveUser];
+        if (!dict) {
+            NSLog(@"The dictionary didn't initialize properly");
+        } else {
+
+            NSString *success = [dict objectForKey:@"success"];
+            if ([success isEqualToString:@"true"]) {
+                NSLog(@"yes?");
+                NSString *token = [dict objectForKey:@"token"];
+                AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                mainDelegate.token = token;
+
+                //now make a second request using the token to get the user or organization
+                //TODO: Add fixes to return an Organization from the same login method
+                return [self retrieveUser];
+            }
+            NSLog(@"no?");
         }
-        NSLog(@"no?");
 
     }
     @catch (NSException *exception) {
