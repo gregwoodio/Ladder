@@ -49,6 +49,8 @@
 -(IBAction)loginClick:(id)sender
 {
     AppDelegate *mainDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    NSLog(txtUsername.text);
+    NSLog(txtPassword.text);
     if ([mainDelegate loginUser:txtUsername.text pw: txtPassword.text]) {
         [mainDelegate transToDash];
     } else {

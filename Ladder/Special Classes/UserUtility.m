@@ -41,10 +41,14 @@
     //check for success
     NSString *strData = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 
+    NSLog(strData);
+    
     @try {
+        NSLog(@"intry?");
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:strData options:0 error:&err];
         NSString *success = [dict objectForKey:@"success"];
         if ([success isEqualToString:@"true"]) {
+            NSLog(@"yes?");
             NSString *token = [dict objectForKey:@"token"];
             AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             mainDelegate.token = token;
@@ -53,10 +57,15 @@
             //TODO: Add fixes to return an Organization from the same login method
             return [self retrieveUser];
         }
+        NSLog(@"no?");
+
     }
     @catch (NSException *exception) {
         //something went wrong, no token
     }
+    
+    NSLog(@"finally?");
+
     //[self parseData:jsonData];
     
     return nil;
@@ -64,7 +73,6 @@
 
 - (User *) retrieveUser {
     responseData = [[NSMutableData alloc] init];
-    
     // //make POST string
     // NSString *post = [NSString stringWithFormat:@"Username=%@&Password=%@", username, password];
     
@@ -99,12 +107,12 @@
     self.user = [[User alloc] init];
     
     NSString *strData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    //NSLog(@"%@", strData);
+    NSLog(@"%@", strData);
     @try {
         NSError *err = nil;
         NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:strData options:0 error:&err];
         
-        self.user.userID = [dictionary[@"ProfileID"] integerValue];
+        self.user.userID = dictionary[@"ProfileID"];
         self.user.username = dictionary[@"Username"];
         self.user.firstName = dictionary[@"FirstName"];
         self.user.lastName = dictionary[@"LastName"];
