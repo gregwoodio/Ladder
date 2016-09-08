@@ -45,7 +45,8 @@
     
     @try {
         NSLog(@"intry?");
-        NSDictionary *dict = ((NSDictionary *)[NSJSONSerialization JSONObjectWithData:strData options:0 error:&err]);
+        NSArray *jsonArray = ((NSArray *)[NSJSONSerialization JSONObjectWithData:strData options:0 error:&err]);
+        NSDictionary *dict = (NSDictionary *)[jsonArray objectAtIndex:0];
 
         if (!dict) {
             NSLog(@"The dictionary didn't initialize properly");
