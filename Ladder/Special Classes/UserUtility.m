@@ -62,7 +62,7 @@
     return nil;
 }
 
-- (User *) getUser {
+- (User *) retrieveUser {
     responseData = [[NSMutableData alloc] init];
     
     // //make POST string

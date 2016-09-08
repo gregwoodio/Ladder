@@ -20,6 +20,7 @@
 @property (nonatomic, strong) Organization *org;
 
 - (User *) login: (NSString *)username pw:(NSString *)password;
+- (User *) retrieveUser;
 - (Organization *) retrieveOrganization: (NSString *)username pw:(NSString *)password;
 
 @end
