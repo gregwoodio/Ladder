@@ -51,7 +51,7 @@
 
             //now make a second request using the token to get the user or organization
             //TODO: Add fixes to return an Organization from the same login method
-            return [self getUser];
+            return [self retrieveUser];
         }
     }
     @catch (NSException *exception) {
