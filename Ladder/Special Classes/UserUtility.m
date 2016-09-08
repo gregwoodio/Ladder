@@ -52,6 +52,7 @@
         } else {
 
             NSString *success = [dict objectForKey:@"success"];
+            NSLog(@"%@", success);
             if ([success isEqualToString:@"true"]) {
                 NSLog(@"yes?");
                 NSString *token = [dict objectForKey:@"token"];
