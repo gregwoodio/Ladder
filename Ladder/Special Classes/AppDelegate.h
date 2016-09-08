@@ -53,6 +53,7 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
+    NSString *token;
     ViewController *homeVC;
     ProfileViewController *profileVC;
     RegisterViewController *registerVC;
@@ -87,6 +88,7 @@
 
 #pragma mark - Objects Greg
 
+@property (strong, nonatomic) NSString *token;
 @property (strong, nonatomic) ProfileViewController *profileVC;
 @property (strong, nonatomic) RegisterViewController *registerVC;
 @property (strong, nonatomic) OrganizationProfileViewController *orgProfileVC;

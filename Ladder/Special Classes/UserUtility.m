@@ -12,7 +12,8 @@
 @implementation UserUtility
 @synthesize responseData, user, org;
 
-- (User *) retrieveUser: (NSString *) username pw: (NSString *) password {
+- (User *) login: (NSString *) username pw: (NSString *) password {
+    //Creates a request using username and password, sets the token if successful and returns the User or Organization object
     responseData = [[NSMutableData alloc] init];
     
     //make POST string
@@ -26,7 +27,7 @@
     
     //make URL request
     NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
-    [req setURL: [NSURL URLWithString: @"http://mobile.sheridanc.on.ca/~woodgre/Ladder/LoginUser.php"]];
+    [req setURL: [NSURL URLWithString: @"http://laddr.xyz/api/login"]];
     [req setHTTPMethod:@"POST"];
     [req setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -36,8 +37,60 @@
     NSURLResponse *res = nil;
     NSError *err = nil;
     NSData *jsonData = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:&err];
-    [self parseData:jsonData];
     
+    //check for success
+    NSString *strData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+
+    @try {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:strData options:0 error:&err];
+        if ([dict objectForKey:@"success"] isEqualToString:@"true") {
+            NSString *token = [dict objectForKey:@"token"];
+            AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            mainDelegate.token = token;
+
+            //now make a second request using the token to get the user or organization
+            //TODO: Add fixes to return an Organization from the same login method
+            return [self getUser];
+        }
+    }
+    @catch (NSException *exception) {
+        //something went wrong, no token
+    }
+    //[self parseData:jsonData];
+    
+    return nil;
+}
+
+- (User *) getUser {
+    responseData = [[NSMutableData alloc] init];
+    
+    // //make POST string
+    // NSString *post = [NSString stringWithFormat:@"Username=%@&Password=%@", username, password];
+    
+    // //Encode string
+    // NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    // //Need post length
+    // NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+    
+    //make URL request
+    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
+    [req setURL: [NSURL URLWithString: @"http://laddr.xyz/api/user"]];
+    [req setHTTPMethod:@"GET"];
+    // [req setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    // [req setHTTPBody: postData];
+    //set token as header
+    AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [req setValue: mainDelegate.token forHTTPHeaderField:@"x-access-token"];
+ 
+    //make a synchronous URLConnection
+    NSURLResponse *res = nil;
+    NSError *err = nil;
+    NSData *jsonData = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:&err];
+    
+    //parse into user object
+    [self.parseData jsonData];
     return self.user;
 }
 
@@ -47,8 +100,7 @@
     NSString *strData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     //NSLog(@"%@", strData);
     @try {
-        NSArray *json = ((NSArray *)[NSJSONSerialization JSONObjectWithData: [strData dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil])[0];
-        NSDictionary *dictionary = (NSDictionary *)[json objectAtIndex:0];
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:strData options:0 error:&err];
         
         self.user.userID = [dictionary[@"UserID"] integerValue];
         self.user.username = dictionary[@"username"];
