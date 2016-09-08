@@ -43,7 +43,8 @@
 
     @try {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:strData options:0 error:&err];
-        if ([dict objectForKey:@"success"] isEqualToString:@"true") {
+        NSString *success = [dict objectForKey:@"success"];
+        if ([success isEqualToString:@"true"]) {
             NSString *token = [dict objectForKey:@"token"];
             AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             mainDelegate.token = token;
@@ -103,18 +104,18 @@
         NSError *err = nil;
         NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:strData options:0 error:&err];
         
-        self.user.userID = [dictionary[@"UserID"] integerValue];
-        self.user.username = dictionary[@"username"];
-        self.user.firstName = dictionary[@"firstname"];
-        self.user.lastName = dictionary[@"lastname"];
-        self.user.email = dictionary[@"email"];
-        self.user.userDescription = dictionary[@"description"];
-        self.user.resume = dictionary[@"resume"];
-        self.user.academicStatus = [dictionary[@"academic_status"] integerValue];
+        self.user.userID = [dictionary[@"ProfileID"] integerValue];
+        self.user.username = dictionary[@"Username"];
+        self.user.firstName = dictionary[@"FirstName"];
+        self.user.lastName = dictionary[@"LastName"];
+        self.user.email = dictionary[@"Email"];
+        self.user.userDescription = dictionary[@"Description"];
+        self.user.resume = dictionary[@"Resume"];
+        self.user.academicStatus = [dictionary[@"AcademicStatus"] integerValue];
         //    if (dictionary[@"picture_url"] != nil) {
         //        user.pictureURL = [NSURL URLWithString:dictionary[@"picture_url"]];
         //    }
-        self.user.timestamp = dictionary[@"timestamp"];    }
+        self.user.timestamp = dictionary[@"Timestamp"];    }
     @catch (NSException *exception) {
         //User was not found so the array has no indices
         self.user = nil;
