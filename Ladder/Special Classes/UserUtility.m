@@ -39,7 +39,7 @@
     NSData *jsonData = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:&err];
     
     //check for success
-    NSString *strData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSString *strData = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 
     @try {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:strData options:0 error:&err];
@@ -100,6 +100,7 @@
     NSString *strData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     //NSLog(@"%@", strData);
     @try {
+        NSError *err = nil;
         NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:strData options:0 error:&err];
         
         self.user.userID = [dictionary[@"UserID"] integerValue];
@@ -175,6 +176,5 @@
         self.user = nil;
     }
 }
-
 
 @end
