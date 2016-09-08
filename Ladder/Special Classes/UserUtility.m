@@ -91,7 +91,7 @@
     NSData *jsonData = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:&err];
     
     //parse into user object
-    [self.parseData jsonData];
+    [self parseData:jsonData];
     return self.user;
 }
 
