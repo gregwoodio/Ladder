@@ -45,26 +45,30 @@
     
     @try {
         NSLog(@"intry?");
-        NSArray *jsonArray = ((NSArray *)[NSJSONSerialization JSONObjectWithData:strData options:0 error:&err]);
-        NSDictionary *dict = (NSDictionary *)[jsonArray objectAtIndex:0];
+        //NSArray *jsonArray = ((NSArray *)[NSJSONSerialization JSONObjectWithData:[strData dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&err]);
+        //NSInteger abc = jsonArray.count;
+        //NSString *xyz = @(abc).stringValue;
+        //NSLog(xyz);
+        //NSLog([jsonArray objectAtIndex:0]);
+        //NSLog(@"%@", jsonArray[0]);
+        //NSLog([jsonArray objectAtIndex:1]);
+        //NSLog([jsonArray objectAtIndex:2]);
+        //NSDictionary *dict = (NSDictionary *)[jsonArray objectAtIndex:0];
 
+        NSDictionary *dict = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&err];
+        
         if (!dict) {
             NSLog(@"The dictionary didn't initialize properly");
         } else {
 
-            NSString *success = [dict objectForKey:@"success"];
-            NSLog(@"%@", success);
-            if ([success isEqualToString:@"true"]) {
-                NSLog(@"yes?");
-                NSString *token = [dict objectForKey:@"token"];
-                AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                mainDelegate.token = token;
-
-                //now make a second request using the token to get the user or organization
-                //TODO: Add fixes to return an Organization from the same login method
-                return [self retrieveUser];
-            }
-            NSLog(@"no?");
+            NSString *token = [dict objectForKey:@"token"];
+            NSLog(@"%@", token);
+            AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            mainDelegate.token = token;
+            
+            //now make a second request using the token to get the user or organization
+            //TODO: Add fixes to return an Organization from the same login method
+            return [self retrieveUser];
         }
 
     }
@@ -108,17 +112,20 @@
     
     //parse into user object
     [self parseData:jsonData];
+    
+    NSLog(@"User %@ logged in.\nName: %@ %@\n", self.user.username, self.user.firstName, self.user.lastName);
+    
     return self.user;
 }
 
 - (void) parseData: (NSData *) data {
     self.user = [[User alloc] init];
     
-    NSString *strData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"%@", strData);
+    //NSString *strData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    //NSLog(@"%@", strData);
     @try {
         NSError *err = nil;
-        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:strData options:0 error:&err];
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
         
         self.user.userID = dictionary[@"ProfileID"];
         self.user.username = dictionary[@"Username"];
