@@ -12,7 +12,7 @@
 @implementation UserUtility
 @synthesize responseData, user, org;
 
-- (User *) login: (NSString *) username pw: (NSString *) password {
+- (Profile *) login: (NSString *) username pw: (NSString *) password {
     //Creates a request using username and password, sets the token if successful and returns the User or Organization object
     responseData = [[NSMutableData alloc] init];
     
@@ -38,22 +38,7 @@
     NSError *err = nil;
     NSData *jsonData = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:&err];
     
-    //check for success
-    NSString *strData = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-
-    NSLog(strData);
-    
     @try {
-        NSLog(@"intry?");
-        //NSArray *jsonArray = ((NSArray *)[NSJSONSerialization JSONObjectWithData:[strData dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&err]);
-        //NSInteger abc = jsonArray.count;
-        //NSString *xyz = @(abc).stringValue;
-        //NSLog(xyz);
-        //NSLog([jsonArray objectAtIndex:0]);
-        //NSLog(@"%@", jsonArray[0]);
-        //NSLog([jsonArray objectAtIndex:1]);
-        //NSLog([jsonArray objectAtIndex:2]);
-        //NSDictionary *dict = (NSDictionary *)[jsonArray objectAtIndex:0];
 
         NSDictionary *dict = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&err];
         
@@ -68,7 +53,7 @@
             
             //now make a second request using the token to get the user or organization
             //TODO: Add fixes to return an Organization from the same login method
-            return [self retrieveUser];
+            return [self retrieveProfile];
         }
 
     }
@@ -76,129 +61,100 @@
         //something went wrong, no token
     }
     
-    NSLog(@"finally?");
-
-    //[self parseData:jsonData];
-    
     return nil;
 }
 
-- (User *) retrieveUser {
+- (Profile *) retrieveProfile {
     responseData = [[NSMutableData alloc] init];
-    // //make POST string
-    // NSString *post = [NSString stringWithFormat:@"Username=%@&Password=%@", username, password];
-    
-    // //Encode string
-    // NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    
-    // //Need post length
-    // NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
-    
+
     //make URL request
     NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
-    [req setURL: [NSURL URLWithString: @"http://laddr.xyz/api/user"]];
+    [req setURL: [NSURL URLWithString: @"http://laddr.xyz/api/profile"]];
     [req setHTTPMethod:@"GET"];
-    // [req setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    // [req setHTTPBody: postData];
+    
     //set token as header
     AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [req setValue: mainDelegate.token forHTTPHeaderField:@"x-access-token"];
  
     //make a synchronous URLConnection
+    //TODO: All requests should be asynchronous
     NSURLResponse *res = nil;
     NSError *err = nil;
     NSData *jsonData = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:&err];
     
     //parse into user object
-    [self parseData:jsonData];
+    return [self parseData:jsonData];
     
-    NSLog(@"User %@ logged in.\nName: %@ %@\n", self.user.username, self.user.firstName, self.user.lastName);
-    
-    return self.user;
+    // NSLog(@"User %@ logged in.\nName: %@ %@\n", self.user.username, self.user.firstName, self.user.lastName);
+    // NSLog(@"ProfileID: %@", self.user.userID);
+    // NSLog(@"Email: %@", self.user.email);
+    // NSLog(@"Description: %@", self.user.userDescription);
+    // NSLog(@"Resume: %@", self.user.resume);
+    // NSLog(@"Academic Status: %@", self.user.academicStatus);
 }
 
-- (void) parseData: (NSData *) data {
-    self.user = [[User alloc] init];
+- (Profile *) parseData: (NSData *) data {
     
-    //NSString *strData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    //NSLog(@"%@", strData);
     @try {
         NSError *err = nil;
         NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+
+        if (dictionary[@"AccountType"] == 0) {
+            //user
+            self.user = [[User alloc] init];
+
+            self.user.userID = dictionary[@"ProfileID"];
+            self.user.username = dictionary[@"Username"];
+            self.user.firstName = dictionary[@"FirstName"];
+            self.user.lastName = dictionary[@"LastName"];
+            self.user.email = dictionary[@"Email"];
+            self.user.userDescription = dictionary[@"Description"];
+            self.user.resume = dictionary[@"Resume"];
+            self.user.academicStatus = [dictionary[@"AcademicStatus"] integerValue];
+            //    if (dictionary[@"picture_url"] != nil) {
+            //        user.pictureURL = [NSURL URLWithString:dictionary[@"picture_url"]];
+            //    }
+            self.user.timestamp = dictionary[@"Timestamp"];    
+
+            //NSLogs for debugging
+            NSLog(@"User %@ logged in.\nName: %@ %@\n", self.user.username, self.user.firstName, self.user.lastName);
+            NSLog(@"ProfileID: %@", self.user.userID);
+            NSLog(@"Email: %@", self.user.email);
+            NSLog(@"Description: %@", self.user.userDescription);
+            NSLog(@"Resume: %@", self.user.resume);
+            NSLog(@"Academic Status: %@", self.user.academicStatus);
+
+            return self.user;
+
+        } else if (dictionary[@"AccountType"] == 1) {
+            self.org = [[Organization alloc] init];
+
+            self.org.organizationID = dictionary[@"ProfileID"];
+            self.org.username = dictionary[@"Username"];
+            self.org.organizationName = dictionary[@"OrganizationName"];
+            self.org.email = dictionary[@"Email"];
+    //        self.org.url = dictionary[@"URL"];
+            self.org.missionStatement = dictionary[@"MissionStatement"];
+            //    if (dictionary[@"photo_url"] != nil) {
+            //        org.photo_url = [NSURL URLWithString:dictionary[@"PictureURL"]];
+            //    }
+            self.user.timestamp = dictionary[@"Timestamp"];
+
+            //NSLogs for debugging
+            NSLog(@"User %@ logged in.\nOrganization Name: %@ %@\n", self.org.username, self.org.organizationName);
+            NSLog(@"ProfileID: %@", self.org.userID);
+            NSLog(@"Email: %@", self.org.email);
+            NSLog(@"Mission Statement: %@", self.org.missionStatement);
+
+            return self.org;  
+        }
         
-        self.user.userID = dictionary[@"ProfileID"];
-        self.user.username = dictionary[@"Username"];
-        self.user.firstName = dictionary[@"FirstName"];
-        self.user.lastName = dictionary[@"LastName"];
-        self.user.email = dictionary[@"Email"];
-        self.user.userDescription = dictionary[@"Description"];
-        self.user.resume = dictionary[@"Resume"];
-        self.user.academicStatus = [dictionary[@"AcademicStatus"] integerValue];
-        //    if (dictionary[@"picture_url"] != nil) {
-        //        user.pictureURL = [NSURL URLWithString:dictionary[@"picture_url"]];
-        //    }
-        self.user.timestamp = dictionary[@"Timestamp"];    }
-    @catch (NSException *exception) {
-        //User was not found so the array has no indices
-        self.user = nil;
-    }
-}
-
-#pragma mark - Organization methods
-
-- (Organization *) retrieveOrganization: (NSString *) username pw: (NSString *) password {
-    responseData = [[NSMutableData alloc] init];
-    
-    //make POST string
-    NSString *post = [NSString stringWithFormat:@"Username=%@&Password=%@", username, password];
-    
-    //Encode string
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    
-    //Need post length
-    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
-    
-    //make URL request
-    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
-    [req setURL: [NSURL URLWithString: @"http://mobile.sheridanc.on.ca/~woodgre/Ladder/LoginOrganization.php"]];
-    [req setHTTPMethod:@"POST"];
-    [req setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [req setHTTPBody: postData];
-    
-    //make a synchronous URLConnection
-    NSURLResponse *res = nil;
-    NSError *err = nil;
-    NSData *jsonData = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:&err];
-    [self parseOrganizationData:jsonData];
-    
-    return self.org;
-}
-
-- (void) parseOrganizationData: (NSData *) data {
-    self.org = [[Organization alloc] init];
-    
-    NSString *strData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    //NSLog(@"%@", strData);
-    @try {
-        NSArray *json = ((NSArray *)[NSJSONSerialization JSONObjectWithData: [strData dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil])[0];
-        NSDictionary *dictionary = (NSDictionary *)[json objectAtIndex:0];
         
-        self.org.organizationID = [dictionary[@"organizationID"] integerValue];
-        self.org.username = dictionary[@"username"];
-        self.org.organizationName = dictionary[@"organizationName"];
-        self.org.email = dictionary[@"email"];
-//        self.org.url = dictionary[@"url"];
-        self.org.missionStatement = dictionary[@"mission_statement"];
-        //    if (dictionary[@"photo_url"] != nil) {
-        //        org.photo_url = [NSURL URLWithString:dictionary[@"photo_url"]];
-        //    }
-        self.user.timestamp = dictionary[@"timestamp"];    }
-    @catch (NSException *exception) {
-        //User was not found so the array has no indices
-        self.user = nil;
+    } @catch (NSException *exception) {
+        //Error parsing data into dictionary
     }
+    return nil;
 }
 
 @end

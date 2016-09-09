@@ -10,6 +10,6 @@
 
 @implementation User
 
-@synthesize userID, username, firstName, lastName, email, userDescription, resume, academicStatus, pictureURL, timestamp;
+@synthesize firstName, lastName, userDescription, resume, academicStatus;
 
 @end

@@ -8,29 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@interface User : NSObject
+@interface User : Profile
 {
-    NSString *userID;
-    NSString *username;
     NSString *firstName;
     NSString *lastName;
-    NSString *email;
     NSString *userDescription;
     NSString *resume;
     NSInteger academicStatus;
-    NSURL *pictureURL;
-    NSString *timestamp;
 }
 
-@property (nonatomic, strong) NSString *userID;
-@property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
-@property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *userDescription;
 @property (nonatomic, strong) NSString *resume;
 @property (nonatomic) NSInteger academicStatus;
-@property (nonatomic, strong) NSURL *pictureURL;
-@property (nonatomic, strong) NSString *timestamp;
 
 @end
