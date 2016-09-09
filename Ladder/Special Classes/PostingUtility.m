@@ -16,21 +16,25 @@
 
 - (NSArray *) getAllPostings {
     NSError *error;
+
+    //make HTTP request
+    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
+    [req setURL: [NSURL URLWithString: @"http://laddr.xyz/api/posting"]];
+    [req setHTTPMethod:@"GET"];
+    [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     
-    //read JSON from URL
-    NSURL *url = [NSURL URLWithString:@"http://mobile.sheridanc.on.ca/~woodgre/Ladder/GetAllPostings.php"];
-    NSString *file = [[NSString alloc] initWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
+    //set token as header
+    AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [req setValue: mainDelegate.token forHTTPHeaderField:@"x-access-token"];
+ 
+    //make a synchronous URLConnection
+    //TODO: All requests should be asynchronous
+    NSURLResponse *res = nil;
+    NSError *err = nil;
+    NSData *jsonData = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:&err];
     
-    /*
-     if (error) {
-     NSLog(@"%@",[error description]);
-     } else {
-     NSLog(@"%@", [file description]);
-     }
-     */
-    
-    //The JSON being returned was returning an array of arrays, get the [0]th element
-    NSArray *json = ((NSArray *)[NSJSONSerialization JSONObjectWithData: [file dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil])[0];
+    //The JSON is returned as an array
+    NSArray *json = ((NSArray *)[NSJSONSerialization JSONObjectWithData: jsonData options:0 error:nil])[0];
     NSMutableArray *postings = [[NSMutableArray alloc] init];
     
     for (int i = 0; i < [json count]; i++) {
@@ -47,13 +51,46 @@
     return [postings copy];
 }
 
-- (Posting *) getPosting: (NSInteger) postingID {
-    [self getAllPostings];
-    for (int i = 0; i < [self.postings count]; i++) {
-        if (((Posting *)[self.postings objectAtIndex:i]).postingID == postingID) {
-            return [self.postings objectAtIndex:i];
-        }
+- (Posting *) getPosting: (NSString *)postingID {
+    //Get the specified posting
+    NSError *error;
+
+    //make HTTP request
+    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
+    NSString *url = [NSString stringWithFormat:@"http://laddr.xyz/api/posting?id=%@", postingID];
+    [req setURL: [NSURL URLWithString: url]];
+    [req setHTTPMethod:@"GET"];
+    [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    //set token as header
+    AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [req setValue: mainDelegate.token forHTTPHeaderField:@"x-access-token"];
+ 
+    //make a synchronous URLConnection
+    //TODO: All requests should be asynchronous
+    NSURLResponse *res = nil;
+    NSError *err = nil;
+    NSData *jsonData = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:&err];
+    
+
+    @try {
+        NSError *err = nil;
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+
+        Posting *posting = [[Posting alloc] init];
+
+        posting.postingID = dictionary[@"PostingID"];
+        posting.jobTitle = dictionary[@"JobTitle"];
+        posting.organizerName = dictionary[@"OrganizationName"];
+        posting.location = dictionary[@"Location"];
+        posting.jobDescription = dictionary[@"Description"];
+
+        return posting;
     }
+    @catch {
+        //error getting posting
+    }
+
     return nil;
 }
 
@@ -64,7 +101,7 @@
     AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     //make POST string
-    NSString *post = [NSString stringWithFormat:@"OrganizationID=%ld&JobTitle=%@&Location=%@&Description=%@", mainDelegate.organization.organizationID, posting.jobTitle, posting.location, posting.jobDescription];
+    NSString *post = [NSString stringWithFormat:@"ProfileID=%@&JobTitle=%@&Location=%@&Description=%@", mainDelegate.organization.organizationID, posting.jobTitle, posting.location, posting.jobDescription];
     
     //Encode string
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
@@ -74,11 +111,14 @@
     
     //make URL request
     NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
-    [req setURL: [NSURL URLWithString: @"http://mobile.sheridanc.on.ca/~woodgre/Ladder/AddPosting.php"]];
+    [req setURL: [NSURL URLWithString: @"http://laddr.xyz/api/posting"]];
     [req setHTTPMethod:@"POST"];
     [req setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [req setHTTPBody: postData];
+
+    //set token as header
+    [req setValue: mainDelegate.token forHTTPHeaderField:@"x-access-token"];
     
     //Make a URLConnection
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:req delegate:self];

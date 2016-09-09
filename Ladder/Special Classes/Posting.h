@@ -10,14 +10,14 @@
 
 @interface Posting : NSObject
 {
-    NSInteger postingID;
+    NSString *postingID;
     NSString *jobTitle;
     NSString *organizerName;
     NSString *location;
     NSString *jobDescription;
 }
 
-@property (nonatomic) NSInteger postingID;
+@property (nonatomic, strong) NSString *postingID;
 @property (nonatomic, strong) NSString *jobTitle;
 @property (nonatomic, strong)NSString *organizerName;
 @property (nonatomic, strong)NSString *location;

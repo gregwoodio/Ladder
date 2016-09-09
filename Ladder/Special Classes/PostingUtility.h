@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSArray *postings;
 
 - (NSArray *) getAllPostings;
-- (Posting *) getPosting: (NSInteger) postingID;
+- (Posting *) getPosting: (NSString *) postingID;
 - (BOOL) addPosting: (Posting *) posting;
 
 @end

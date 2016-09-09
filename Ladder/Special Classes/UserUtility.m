@@ -10,11 +10,10 @@
 #import "AppDelegate.h"
 
 @implementation UserUtility
-@synthesize responseData, user, org;
+@synthesize user, org;
 
 - (Profile *) login: (NSString *) username pw: (NSString *) password {
     //Creates a request using username and password, sets the token if successful and returns the User or Organization object
-    responseData = [[NSMutableData alloc] init];
     
     //make POST string
     NSString *post = [NSString stringWithFormat:@"Username=%@&Password=%@", username, password];
@@ -65,7 +64,6 @@
 }
 
 - (Profile *) retrieveProfile {
-    responseData = [[NSMutableData alloc] init];
 
     //make URL request
     NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];

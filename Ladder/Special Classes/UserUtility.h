@@ -11,11 +11,9 @@
 #import "Organization.h"
 
 @interface UserUtility : NSObject {
-    NSMutableData* responseData;
     User *user;
     Organization *org;
 }
-@property (nonatomic, strong) NSData *responseData;
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) Organization *org;
 
