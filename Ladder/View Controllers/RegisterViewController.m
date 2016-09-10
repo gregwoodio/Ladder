@@ -94,17 +94,17 @@
  */
 -(IBAction)addUser:(id)sender{
     //make the POST string
-    NSString *post = [NSString stringWithFormat:@"Username=%@&FirstName=%@&LastName=%@&Password=%@&Email=%@&Description=%@&Resume=%@&AcademicStatus=%@&Picture=%@",
+    //Username, Email, Password, PictureURL, FirstName, LastName, Description, and Resume
+    NSString *post = [NSString stringWithFormat:@"Username=%@&Email=%@&Password=%@&PictureURL=%@&FirstName=%@&LastName=%@&Description=%@&Resume=%@",
                       txtUsername.text,
+                      txtEmail.text,
+                      txtPassword.text,
+                      txtPicturePath.text,
                       txtFirstName.text,
                       txtLastName.text,
-                      txtPassword.text,
-                      txtEmail.text,
                       txtDescription.text,
-                      txtResume.text,
-                      @"Not Available",
-                      txtPicturePath.text];
-    
+                      txtResume.text];
+
     //Encode String
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     
@@ -113,7 +113,7 @@
     
     //make URL request
     NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
-    [req setURL: [NSURL URLWithString: @"http://mobile.sheridanc.on.ca/~woodgre/Ladder/AddUser.php"]];
+    [req setURL: [NSURL URLWithString: @"http://laddr.xyz/api/user"]];
     [req setHTTPMethod:@"POST"];
     [req setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];

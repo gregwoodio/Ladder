@@ -39,11 +39,26 @@
     NSError *error;
     
     //read JSON from URL (%zd for unsigned int)
-    NSString *urlWithTopic = [NSString stringWithFormat: @"http://mobile.sheridanc.on.ca/~woodgre/Ladder/Topic.php?TopicID=%zd", self.topicID];
-    NSURL *url = [NSURL URLWithString: urlWithTopic];
-    NSString *file = [[NSString alloc] initWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
+    NSString *urlWithTopic = [NSString stringWithFormat: @"http://laddr.xyz/api/topic?TopicID=%zd", self.topicID];
     
-    self.commentsArray = ((NSArray *)[NSJSONSerialization JSONObjectWithData:                         [file dataUsingEncoding:NSUTF8StringEncoding]                                                                     options:0 error:nil])[0];
+    //make HTTP request
+    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
+    [req setURL: [NSURL URLWithString: urlWithTopic]];
+    [req setHTTPMethod:@"GET"];
+    [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    //set token as header
+    AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [req setValue: mainDelegate.token forHTTPHeaderField:@"x-access-token"];
+ 
+    //make a synchronous URLConnection
+    //TODO: All requests should be asynchronous
+    NSURLResponse *res = nil;
+    NSError *err = nil;
+    NSData *jsonData = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:&err];
+
+    //read JSON data into array    
+    self.commentsArray = (NSArray *)[NSJSONSerialization JSONObjectWithData: jsonData options:0 error:nil];
     
     NSLog(@"titleText: %@", titleText);
     

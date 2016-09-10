@@ -37,23 +37,27 @@
     [super viewDidLoad];
     
     //TODO: Fix crashes when JSON can't be found.
-    
     NSError *error;
+
+    //make HTTP request
+    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
+    NSString *url = [NSString stringWithFormat:@"http://laddr.xyz/api/topic"];
+    [req setURL: [NSURL URLWithString: url]];
+    [req setHTTPMethod:@"GET"];
+    [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     
-    //read JSON from URL
-    NSURL *url = [NSURL URLWithString:@"http://mobile.sheridanc.on.ca/~woodgre/Ladder/AllTopics.php"];
-    NSString *file = [[NSString alloc] initWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
-    
-    /*
-    if (error) {
-        NSLog(@"%@",[error description]);
-    } else {
-        NSLog(@"%@", [file description]);
-    }
-    */
+    //set token as header
+    AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [req setValue: mainDelegate.token forHTTPHeaderField:@"x-access-token"];
+ 
+    //make a synchronous URLConnection
+    //TODO: All requests should be asynchronous
+    NSURLResponse *res = nil;
+    NSError *err = nil;
+    NSData *jsonData = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:&err];
     
     //The JSON being returned was returning an array of arrays, get the [0]th element
-    self.topics = ((NSArray *)[NSJSONSerialization JSONObjectWithData: [file dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil])[0];
+    self.topics = (NSArray *)[NSJSONSerialization JSONObjectWithData: jsonData options:0 error:nil];
     
     self.tblTopics.dataSource = self;
     self.tblTopics.delegate = self;
@@ -68,20 +72,25 @@
 - (void) viewWillAppear:(BOOL)animated {
     NSError *error;
     
-    //read JSON from URL
-    NSURL *url = [NSURL URLWithString:@"http://mobile.sheridanc.on.ca/~woodgre/Ladder/AllTopics.php"];
-    NSString *file = [[NSString alloc] initWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
+    //make HTTP request
+    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
+    NSString *url = [NSString stringWithFormat:@"http://laddr.xyz/api/topic"];
+    [req setURL: [NSURL URLWithString: url]];
+    [req setHTTPMethod:@"GET"];
+    [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     
-    /*
-     if (error) {
-     NSLog(@"%@",[error description]);
-     } else {
-     NSLog(@"%@", [file description]);
-     }
-     */
+    //set token as header
+    AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [req setValue: mainDelegate.token forHTTPHeaderField:@"x-access-token"];
+ 
+    //make a synchronous URLConnection
+    //TODO: All requests should be asynchronous
+    NSURLResponse *res = nil;
+    NSError *err = nil;
+    NSData *jsonData = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:&err];
     
     //The JSON being returned was returning an array of arrays, get the [0]th element
-    self.topics = ((NSArray *)[NSJSONSerialization JSONObjectWithData: [file dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil])[0];
+    self.topics = (NSArray *)[NSJSONSerialization JSONObjectWithData: jsonData options:0 error:nil];
     
     [tblTopics reloadData];
 }

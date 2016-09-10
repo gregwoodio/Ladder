@@ -60,11 +60,15 @@
     
     //make URL request
     NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
-    [req setURL: [NSURL URLWithString: @"http://mobile.sheridanc.on.ca/~woodgre/Ladder/AddTopic.php"]];
+    [req setURL: [NSURL URLWithString: @"http://laddr.xyz/api/topic"]];
     [req setHTTPMethod:@"POST"];
     [req setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [req setHTTPBody: postData];
+
+    //set token as header
+    AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [req setValue: mainDelegate.token forHTTPHeaderField:@"x-access-token"];
     
     //Make a URLConnection
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:req delegate:self];
