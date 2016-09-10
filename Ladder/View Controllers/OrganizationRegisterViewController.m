@@ -64,14 +64,16 @@
 
 -(IBAction)addUser:(id)sender{
     //make the POST string
-    NSString *post = [NSString stringWithFormat:@"OrgName=%@&Email=%@&Address=%@&Password=%@&Website=%@&MissionStatement=%@&Picture=%@",
-                      txtOrganizationName.text,
+    //TODO: Add username text field to Organization registration view
+    NSString *post = [NSString stringWithFormat:@"Username=%@&Email=%@&Password=%@&Picture=%@&OrganizationName=%@&Address=%@&URL=%@&MissionStatement=%@",
+                      txtUsername.text,
                       txtEmail.text,
-                      txtAddress.text,
                       txtPassword.text,
+                      txtPicturePath.txt,
+                      txtOrganizationName.text,
+                      txtAddress.text,
                       txtWebsite.text,
-                      txtMissionStatement.text,
-                      txtPicturePath.text];
+                      txtMissionStatement.text];
     
     //Encode String
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
@@ -81,7 +83,7 @@
     
     //make URL request
     NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
-    [req setURL: [NSURL URLWithString: @"http://mobile.sheridanc.on.ca/~woodgre/Ladder/AddTopic.php"]];
+    [req setURL: [NSURL URLWithString: @"http://laddr.xyz/api/organization"]];
     [req setHTTPMethod:@"POST"];
     [req setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];

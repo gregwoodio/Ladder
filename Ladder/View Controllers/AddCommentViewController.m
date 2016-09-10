@@ -50,7 +50,7 @@
     //TODO: Text validation first!
     
     //make POST string
-    NSString *post = [NSString stringWithFormat:@"TopicID=%zd&Creator=%@&Body=%@", topicID, txtUsername.text, txtCommentBody.text];
+    NSString *post = [NSString stringWithFormat:@"TopicID=%zd&Author=%@&Body=%@", topicID, txtUsername.text, txtCommentBody.text];
     
     //Encode string
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
@@ -60,11 +60,15 @@
     
     //make URL request
     NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
-    [req setURL: [NSURL URLWithString: @"http://mobile.sheridanc.on.ca/~woodgre/Ladder/AddComment.php"]];
+    [req setURL: [NSURL URLWithString: @"http://laddr.xyz/api/comment"]];
     [req setHTTPMethod:@"POST"];
     [req setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [req setHTTPBody: postData];
+
+    //set token as header
+    AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [req setValue: mainDelegate.token forHTTPHeaderField:@"x-access-token"];
     
     //Make a URLConnection
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:req delegate:self];
