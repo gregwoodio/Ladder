@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8636C271D847A2500714ECC /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = A8636C261D847A2500714ECC /* Profile.m */; };
 		AE1580AC1CC495AE00A9CF95 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1580AB1CC495AE00A9CF95 /* Social.framework */; };
 		AE1C07D31CBED7CF007BFD4A /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1C07CE1CBED7CF007BFD4A /* Organization.m */; };
 		AE1C07D41CBED7CF007BFD4A /* Posting.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1C07D01CBED7CF007BFD4A /* Posting.m */; };
@@ -60,6 +61,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A8636C251D847A2500714ECC /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Profile.h; path = "Special Classes/Profile.h"; sourceTree = "<group>"; };
+		A8636C261D847A2500714ECC /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Profile.m; path = "Special Classes/Profile.m"; sourceTree = "<group>"; };
 		AE1580AB1CC495AE00A9CF95 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		AE1C07CD1CBED7CF007BFD4A /* Organization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Organization.h; path = "Special Classes/Organization.h"; sourceTree = "<group>"; };
 		AE1C07CE1CBED7CF007BFD4A /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Organization.m; path = "Special Classes/Organization.m"; sourceTree = "<group>"; };
@@ -235,6 +238,8 @@
 		AED6395F1CAF13BD00C1972E /* Special Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A8636C251D847A2500714ECC /* Profile.h */,
+				A8636C261D847A2500714ECC /* Profile.m */,
 				AEEB21191CBEFBAD00091DA2 /* SiteCell.h */,
 				AEEB211A1CBEFBAD00091DA2 /* SiteCell.m */,
 				AED639621CAF144100C1972E /* AppDelegate.h */,
@@ -399,6 +404,7 @@
 				AE4FFE6E1CBC96E1006B3179 /* CommentTableViewCell.m in Sources */,
 				AE1C07D51CBED7CF007BFD4A /* PostingUtility.m in Sources */,
 				AED6399F1CAF155800C1972E /* CommentsViewController.m in Sources */,
+				A8636C271D847A2500714ECC /* Profile.m in Sources */,
 				AED6399E1CAF155800C1972E /* AddTopicViewController.m in Sources */,
 				AED639791CAF144100C1972E /* RegisterViewController.m in Sources */,
 				AEEB21331CBF00B000091DA2 /* AllPostingsViewController.m in Sources */,
