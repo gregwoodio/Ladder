@@ -75,7 +75,7 @@
 
     @try {
         NSError *err = nil;
-        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&err];
 
         Posting *posting = [[Posting alloc] init];
 

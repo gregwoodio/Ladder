@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Profile.h"
 
 @interface Organization : Profile
 {
