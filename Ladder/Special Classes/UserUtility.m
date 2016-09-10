@@ -102,7 +102,7 @@
             //user
             self.user = [[User alloc] init];
 
-            self.user.userID = dictionary[@"ProfileID"];
+            self.user.profileID = dictionary[@"ProfileID"];
             self.user.username = dictionary[@"Username"];
             self.user.firstName = dictionary[@"FirstName"];
             self.user.lastName = dictionary[@"LastName"];
@@ -117,7 +117,7 @@
 
             //NSLogs for debugging
             NSLog(@"User %@ logged in.\nName: %@ %@\n", self.user.username, self.user.firstName, self.user.lastName);
-            NSLog(@"ProfileID: %@", self.user.userID);
+            NSLog(@"ProfileID: %@", self.user.profileID);
             NSLog(@"Email: %@", self.user.email);
             NSLog(@"Description: %@", self.user.userDescription);
             NSLog(@"Resume: %@", self.user.resume);
@@ -128,7 +128,7 @@
         } else if (dictionary[@"AccountType"] == 1) {
             self.org = [[Organization alloc] init];
 
-            self.org.organizationID = dictionary[@"ProfileID"];
+            self.org.organizationName = dictionary[@"ProfileID"];
             self.org.username = dictionary[@"Username"];
             self.org.organizationName = dictionary[@"OrganizationName"];
             self.org.email = dictionary[@"Email"];
@@ -141,7 +141,7 @@
 
             //NSLogs for debugging
             NSLog(@"User %@ logged in.\nOrganization Name: %@ %@\n", self.org.username, self.org.organizationName);
-            NSLog(@"ProfileID: %@", self.org.userID);
+            NSLog(@"ProfileID: %@", self.org.organizationName);
             NSLog(@"Email: %@", self.org.email);
             NSLog(@"Mission Statement: %@", self.org.missionStatement);
 

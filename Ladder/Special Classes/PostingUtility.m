@@ -40,7 +40,7 @@
     for (int i = 0; i < [json count]; i++) {
         NSDictionary *dict = [json objectAtIndex:i];
         Posting *posting = [[Posting alloc] init];
-        posting.postingID = [dict[@"postingID"] integerValue];
+        posting.postingID = [dict[@"postingID"] stringValue];
         posting.organizerName = dict[@"organizationName"];
         posting.jobTitle = dict[@"jobTitle"];
         posting.location = dict[@"location"];
@@ -87,7 +87,7 @@
 
         return posting;
     }
-    @catch {
+    @catch (NSException *exception){
         //error getting posting
     }
 
@@ -101,7 +101,7 @@
     AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     //make POST string
-    NSString *post = [NSString stringWithFormat:@"ProfileID=%@&JobTitle=%@&Location=%@&Description=%@", mainDelegate.organization.organizationID, posting.jobTitle, posting.location, posting.jobDescription];
+    NSString *post = [NSString stringWithFormat:@"ProfileID=%@&JobTitle=%@&Location=%@&Description=%@", mainDelegate.organization.organizationName, posting.jobTitle, posting.location, posting.jobDescription];
     
     //Encode string
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];

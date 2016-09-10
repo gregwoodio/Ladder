@@ -226,6 +226,8 @@
     //Peter's Data init
     PostingUtility *pu = [[PostingUtility alloc] init];
     self.postings = [[pu getAllPostings] copy];
+    NSLog(@"yay3?");
+
 //    self.postings= [[NSMutableArray alloc] init];
     
 //    Posting *p = [[Posting alloc] init];
@@ -269,7 +271,7 @@
 
 - (BOOL) loginOrganization: (NSString *) username pw: (NSString *) password {
     UserUtility *uu = [[UserUtility alloc] init];
-    self.organization = [uu retrieveOrganization: username pw:password];
+    self.organization = [uu login:username pw:password];
     if (self.user == nil) {
         return NO;
     }
