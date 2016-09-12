@@ -34,9 +34,13 @@
     NSData *jsonData = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:&err];
     
     //The JSON is returned as an array
-    NSArray *json = ((NSArray *)[NSJSONSerialization JSONObjectWithData: jsonData options:0 error:nil])[0];
+    NSLog(jsonData);
+    NSDictionary *json = ([NSJSONSerialization JSONObjectWithData: jsonData options:0 error:nil]);
     NSMutableArray *postings = [[NSMutableArray alloc] init];
     
+    
+    
+    /*
     for (int i = 0; i < [json count]; i++) {
         NSDictionary *dict = [json objectAtIndex:i];
         Posting *posting = [[Posting alloc] init];
@@ -47,7 +51,7 @@
         posting.jobDescription = dict[@"description"];
         [postings addObject:posting];
     }
-    
+    */
     return [postings copy];
 }
 

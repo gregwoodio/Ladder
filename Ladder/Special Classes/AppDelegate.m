@@ -224,12 +224,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //Peter's Data init
-    PostingUtility *pu = [[PostingUtility alloc] init];
-    self.postings = [[pu getAllPostings] copy];
-    NSLog(@"yay3?");
+    //PostingUtility *pu = [[PostingUtility alloc] init];
+    //NSLog(@"pre posting call");
+    //self.postings = [[pu getAllPostings] copy];
+    //NSLog(@"post postings call");
 
 //    self.postings= [[NSMutableArray alloc] init];
-    
 //    Posting *p = [[Posting alloc] init];
 //    p.organizerName = @"Sheridan";
 //    p.location = @"Davis";
