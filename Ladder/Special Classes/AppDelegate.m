@@ -23,6 +23,13 @@
     self.dashVC = [[DashBoardViewController alloc] initWithNibName:@"DashBoardViewController" bundle:nil];
     [self setupAnimation:FORWARD];
     [self swapViews:self.loginVC.view goingTo:self.dashVC.view];
+    //Peter's Data init
+    PostingUtility *pu = [[PostingUtility alloc] init];
+    NSLog(@"pre posting call");
+    self.postings = [[pu getAllPostings] copy];
+    NSLog(@"post postings call");
+    self.postings= [[NSMutableArray alloc] init];
+    Posting *p = [[Posting alloc] init];
 }
 
 -(void)transToAbout{
