@@ -10,6 +10,6 @@
 
 @implementation Organization
 
-@synthesize organizationID, username, organizationName, email, password, address, url, photo_url, missionStatement, timestamp;
+@synthesize organizationName, address, url, missionStatement;
 
 @end

@@ -23,6 +23,13 @@
     self.dashVC = [[DashBoardViewController alloc] initWithNibName:@"DashBoardViewController" bundle:nil];
     [self setupAnimation:FORWARD];
     [self swapViews:self.loginVC.view goingTo:self.dashVC.view];
+    //Peter's Data init
+    PostingUtility *pu = [[PostingUtility alloc] init];
+    NSLog(@"pre posting call");
+    self.postings = [[pu getAllPostings] copy];
+    NSLog(@"post postings call");
+    self.postings= [[NSMutableArray alloc] init];
+    Posting *p = [[Posting alloc] init];
 }
 
 -(void)transToAbout{
@@ -224,10 +231,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //Peter's Data init
-    PostingUtility *pu = [[PostingUtility alloc] init];
-    self.postings = [[pu getAllPostings] copy];
+    //PostingUtility *pu = [[PostingUtility alloc] init];
+    //NSLog(@"pre posting call");
+    //self.postings = [[pu getAllPostings] copy];
+    //NSLog(@"post postings call");
+
 //    self.postings= [[NSMutableArray alloc] init];
-    
 //    Posting *p = [[Posting alloc] init];
 //    p.organizerName = @"Sheridan";
 //    p.location = @"Davis";
@@ -269,7 +278,7 @@
 
 - (BOOL) loginOrganization: (NSString *) username pw: (NSString *) password {
     UserUtility *uu = [[UserUtility alloc] init];
-    self.organization = [uu retrieveOrganization: username pw:password];
+    self.organization = [uu login:username pw:password];
     if (self.user == nil) {
         return NO;
     }

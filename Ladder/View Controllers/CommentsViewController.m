@@ -39,7 +39,7 @@
     NSError *error;
     
     //read JSON from URL (%zd for unsigned int)
-    NSString *urlWithTopic = [NSString stringWithFormat: @"http://laddr.xyz/api/topic?TopicID=%zd", self.topicID];
+    NSString *urlWithTopic = [NSString stringWithFormat: @"http://laddr.xyz/api/comment?tid=%zd", self.topicID];
     
     //make HTTP request
     NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];

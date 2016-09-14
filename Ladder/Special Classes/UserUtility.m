@@ -49,7 +49,7 @@
             NSLog(@"%@", token);
             AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             mainDelegate.token = token;
-            
+            NSLog(@"Token obtained");
             //now make a second request using the token to get the user or organization
             //TODO: Add fixes to return an Organization from the same login method
             return [self retrieveProfile];
@@ -64,6 +64,8 @@
 }
 
 - (Profile *) retrieveProfile {
+
+    NSLog(@"Profile retrieve start");
 
     //make URL request
     NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
@@ -80,7 +82,6 @@
     NSURLResponse *res = nil;
     NSError *err = nil;
     NSData *jsonData = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:&err];
-    
     //parse into user object
     return [self parseData:jsonData];
     
@@ -93,16 +94,17 @@
 }
 
 - (Profile *) parseData: (NSData *) data {
-    
     @try {
         NSError *err = nil;
         NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
-
-        if (dictionary[@"AccountType"] == 0) {
+        NSLog(@"account type declare");
+        NSLog(dictionary[@"Accounttype"]);
+        
+        if (dictionary[@"Accounttype"] == 0) {
             //user
             self.user = [[User alloc] init];
-
-            self.user.userID = dictionary[@"ProfileID"];
+            NSLog(@"am i here?");
+            self.user.profileID = dictionary[@"ProfileID"];
             self.user.username = dictionary[@"Username"];
             self.user.firstName = dictionary[@"FirstName"];
             self.user.lastName = dictionary[@"LastName"];
@@ -117,18 +119,18 @@
 
             //NSLogs for debugging
             NSLog(@"User %@ logged in.\nName: %@ %@\n", self.user.username, self.user.firstName, self.user.lastName);
-            NSLog(@"ProfileID: %@", self.user.userID);
+            NSLog(@"ProfileID: %@", self.user.profileID);
             NSLog(@"Email: %@", self.user.email);
             NSLog(@"Description: %@", self.user.userDescription);
             NSLog(@"Resume: %@", self.user.resume);
-            NSLog(@"Academic Status: %@", self.user.academicStatus);
+            NSLog(@"Academic Status: %ld", (long)self.user.academicStatus);
 
             return self.user;
 
-        } else if (dictionary[@"AccountType"] == 1) {
+        } else if (dictionary[@"Accounttype"] == 1) {
             self.org = [[Organization alloc] init];
 
-            self.org.organizationID = dictionary[@"ProfileID"];
+            self.org.organizationName = dictionary[@"ProfileID"];
             self.org.username = dictionary[@"Username"];
             self.org.organizationName = dictionary[@"OrganizationName"];
             self.org.email = dictionary[@"Email"];
@@ -141,7 +143,7 @@
 
             //NSLogs for debugging
             NSLog(@"User %@ logged in.\nOrganization Name: %@ %@\n", self.org.username, self.org.organizationName);
-            NSLog(@"ProfileID: %@", self.org.userID);
+            NSLog(@"ProfileID: %@", self.org.organizationName);
             NSLog(@"Email: %@", self.org.email);
             NSLog(@"Mission Statement: %@", self.org.missionStatement);
 

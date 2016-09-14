@@ -66,10 +66,10 @@
     //make the POST string
     //TODO: Add username text field to Organization registration view
     NSString *post = [NSString stringWithFormat:@"Username=%@&Email=%@&Password=%@&Picture=%@&OrganizationName=%@&Address=%@&URL=%@&MissionStatement=%@",
-                      txtUsername.text,
+                      txtOrganizationName.text,
                       txtEmail.text,
                       txtPassword.text,
-                      txtPicturePath.txt,
+                      txtPicturePath.text,
                       txtOrganizationName.text,
                       txtAddress.text,
                       txtWebsite.text,

@@ -34,17 +34,21 @@
     NSData *jsonData = [NSURLConnection sendSynchronousRequest:req returningResponse:&res error:&err];
     
     //The JSON is returned as an array
-    NSArray *json = ((NSArray *)[NSJSONSerialization JSONObjectWithData: jsonData options:0 error:nil])[0];
+    //NSLog(jsonData);
+    NSArray *json = ([NSJSONSerialization JSONObjectWithData: jsonData options:0 error:nil]);
+    NSInteger xyz = json.count;
+    NSString *abc = [NSString stringWithFormat:@"%lu", xyz];
+    NSLog(abc);
+
     NSMutableArray *postings = [[NSMutableArray alloc] init];
-    
     for (int i = 0; i < [json count]; i++) {
         NSDictionary *dict = [json objectAtIndex:i];
         Posting *posting = [[Posting alloc] init];
-        posting.postingID = [dict[@"postingID"] integerValue];
-        posting.organizerName = dict[@"organizationName"];
-        posting.jobTitle = dict[@"jobTitle"];
-        posting.location = dict[@"location"];
-        posting.jobDescription = dict[@"description"];
+        posting.postingID = dict[@"PostingID"];
+        posting.organizerName = dict[@"OrganizationName"];
+        posting.jobTitle = dict[@"JobTitle"];
+        posting.location = dict[@"Location"];
+        posting.jobDescription = dict[@"Description"];
         [postings addObject:posting];
     }
     
@@ -78,16 +82,14 @@
         NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&err];
 
         Posting *posting = [[Posting alloc] init];
-
         posting.postingID = dictionary[@"PostingID"];
         posting.jobTitle = dictionary[@"JobTitle"];
         posting.organizerName = dictionary[@"OrganizationName"];
         posting.location = dictionary[@"Location"];
         posting.jobDescription = dictionary[@"Description"];
-
         return posting;
     }
-    @catch {
+    @catch (NSException *exception){
         //error getting posting
     }
 
@@ -101,7 +103,7 @@
     AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     //make POST string
-    NSString *post = [NSString stringWithFormat:@"ProfileID=%@&JobTitle=%@&Location=%@&Description=%@", mainDelegate.organization.organizationID, posting.jobTitle, posting.location, posting.jobDescription];
+    NSString *post = [NSString stringWithFormat:@"ProfileID=%@&JobTitle=%@&Location=%@&Description=%@", mainDelegate.organization.organizationName, posting.jobTitle, posting.location, posting.jobDescription];
     
     //Encode string
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
