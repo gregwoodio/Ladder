@@ -21,14 +21,14 @@
     IBOutlet UITextField *txtUsername;
     IBOutlet UITextView *txtCommentBody;
     IBOutlet UILabel *lblTitle;
-    NSInteger *topicID;
+    NSString *topicID;
     NSString *topicTitle;
 }
 
 @property (nonatomic, strong) IBOutlet UITextField *txtUsername;
 @property (nonatomic, strong) IBOutlet UITextView *txtCommentBody;
 @property (nonatomic, strong) IBOutlet UILabel *lblTitle;
-@property (nonatomic) NSInteger *topicID;
+@property (nonatomic, strong) NSString *topicID;
 @property (nonatomic, strong) NSString *topicTitle;
 
 @end

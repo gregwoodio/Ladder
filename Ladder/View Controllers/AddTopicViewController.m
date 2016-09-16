@@ -40,7 +40,7 @@
 /*
  Author: Greg Wood
  // This method is the meat and potatoes of the AddTopicViewController.
- // Creates a POST request to a PHP script that adds the data to the database,
+ // Creates a POST request to a API that adds the data to the database,
  // then redirects the user back to the TopicsView.
  */
 
@@ -48,47 +48,8 @@
 - (IBAction)addTopic:(id)sender {
     
     //TODO: Text validation first! 
-    
-    //make POST string
-    NSString *post = [NSString stringWithFormat:@"Title=%@&Creator=%@&Body=%@", txtTopicName.text, txtUsername.text, txtCommentBody.text];
-    
-    //Encode string
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    
-    //Need post length
-    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
-    
-    //make URL request
-    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
-    [req setURL: [NSURL URLWithString: @"http://laddr.xyz/api/topic"]];
-    [req setHTTPMethod:@"POST"];
-    [req setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [req setHTTPBody: postData];
-
-    //set token as header
-    AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [req setValue: mainDelegate.token forHTTPHeaderField:@"x-access-token"];
-    
-    //Make a URLConnection
-    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:req delegate:self];
-
-    //successful connection: show message and return to TopicsView
-    if (conn) {
-        
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle: @"Success" message:@"Your topic was created." preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                  handler: ^(UIAlertAction *action) {
-                                                      //[alert dismissViewControllerAnimated:YES completion:nil];
-                                                      [self returnToSender:nil];
-                                                  }];
-        [alert addAction:ok];
-        
-        [self presentViewController:alert animated: YES completion:nil];
-    
-    //error, connection was not made.
-    } else {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle: @"Failure." message:@"Your topic wasn't created. Check your internet connection, or try again later." preferredStyle:UIAlertControllerStyleAlert];
+    if (txtTopicName.text == @"" || txtUsername.text == @"" || txtCommentBody.text == @"") {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle: @"Failure." message:@"Please fill out all fields." preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                    handler: ^(UIAlertAction *action) {
                                                        [alert dismissViewControllerAnimated:YES completion:nil];
@@ -96,6 +57,56 @@
         [alert addAction:ok];
         
         [self presentViewController:alert animated: YES completion:nil];
+    } else {
+        
+        //make POST string
+        NSString *post = [NSString stringWithFormat:@"Title=%@&Creator=%@&Body=%@", txtTopicName.text, txtUsername.text, txtCommentBody.text];
+        
+        //Encode string
+        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        
+        //Need post length
+        NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+        
+        //make URL request
+        NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
+        [req setURL: [NSURL URLWithString: @"http://laddr.xyz/api/topic"]];
+        [req setHTTPMethod:@"POST"];
+        [req setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [req setHTTPBody: postData];
+
+        //set token as header
+        AppDelegate *mainDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [req setValue: mainDelegate.token forHTTPHeaderField:@"x-access-token"];
+        
+        //Make a URLConnection
+        NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:req delegate:self];
+
+        //successful connection: show message and return to TopicsView
+        if (conn) {
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle: @"Success" message:@"Your topic was created." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                      handler: ^(UIAlertAction *action) {
+                                                          //[alert dismissViewControllerAnimated:YES completion:nil];
+                                                          [self returnToSender:nil];
+                                                      }];
+            [alert addAction:ok];
+            
+            [self presentViewController:alert animated: YES completion:nil];
+        
+        //error, connection was not made.
+        } else {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle: @"Failure." message:@"Your topic wasn't created. Check your internet connection, or try again later." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                       handler: ^(UIAlertAction *action) {
+                                                           [alert dismissViewControllerAnimated:YES completion:nil];
+                                                       }];
+            [alert addAction:ok];
+            
+            [self presentViewController:alert animated: YES completion:nil];
+        }
     }
     
 }
